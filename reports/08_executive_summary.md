@@ -10,7 +10,7 @@ Interactive version with charts: https://miushkaenavimia.github.io/tune-analysis
 
 ## 4.1 · Healthy, but new subscribers decline; Auto-renew and annual plans can lift growth
 
-- **The base is healthy but slowing:** revenue grew +24% (Q1 2017 vs Q1 2016), but New subscribers have been falling since Jan 2016, so growth relies on renewals, which is a risk if churn rises
+- **The base is healthy but slowing:** revenue grew +24% (Q1 2017 vs Q1 2016), but New users have been falling since Jan 2016, apart from the free-trial waves, so growth relies on renewals, which is a risk if churn rises
 - **Retention is currently the biggest lever for paying-subscriber growth, while winning New subscribers reduces the reliance on renewals:** 3 moves could keep ~10K more paying subscribers a year who would otherwise leave (around +3% in paying subscribers & monthly revenue) (4.2)
   - Move Manual users to Auto-renew: ~3,200
   - Win the first renewal: ~5,200
@@ -26,8 +26,8 @@ Interactive version with charts: https://miushkaenavimia.github.io/tune-analysis
 | Monthly growth of paying subscribers, yearly average | 5.6% (2015) → 2.0% (2016) → 0.8% (Jan 2017 – Mar 2017) |
 | Monthly churn rate, average | 4.3% (Mar 2016 – Feb 2017), down from 4.9% (Feb 2015 – Feb 2016) |
 | Renewing subscribers, share of paying subscribers | 95.5% in Q1 2017 (92.4% in Q1 2016) |
-| New subscribers, share of paying subscribers | 2.8% in Q1 2017 (5.7% in Q1 2016) |
-| New subscribers, count | 8,381 in Mar 2017 (−28% vs Mar 2016) |
+| New users, share of all users (paying + free) | 3.0% in Q1 2017 (6.9% in Q1 2016) |
+| New users, count (paying + free) | 8,772 in Mar 2017 (−41% vs Mar 2016) |
 | Revenue, Q1 2017 vs Q1 2016 | $112.3M vs $90.4M (+24%) |
 | ARPPU (revenue ÷ paying subscribers), Q1 2017 vs Q1 2016 | $124 vs $119 (+4%) |
 
@@ -36,7 +36,7 @@ The churn averages leave out Apr 2015 and Mar 2016 (Billing gap) and Jan 2016 (L
 ### Q1 · How healthy is the subscriber base, and how is it trending?
 
 **The subscriber base is healthy, but its growth is slowing and now relies on renewals:**
-- **New subscribers are falling:** from a peak of 17.3K in Jan 2016 to 8.4K in Mar 2017 (−28% vs. Mar 2016) & since Sep 2016 fewer join each month than paying subscribers leave (8.9K vs. 13.9K in Feb 2017), so 96.1% of paying subscribers are now Renewing subscribers (2.2)
+- **New users are falling:** from 21.9K in Jan 2016 to 8.8K in Mar 2017 (−41% vs. Mar 2016) & since Dec 2016 fewer join each month than paying subscribers leave (9.3K vs. 13.9K in Feb 2017), so 96.0% are now Renewing users (2.2)
 - **Retention is strong on Auto-renew:** 81.2% of new Auto-renew subscribers still pay after 12 months, against 44.6% on Manual (3a; users whose first paid plan was a 30-day plan, first payment Apr 2015 – Feb 2016: 80,554 Auto-renew and 40,285 Manual)
 - **Revenue still grows:** +24% in Q1 2017 against Q1 2016, mostly from more paying subscribers (+19%) (2.4)
 - **Paying subscribers keep growing, but more slowly:** +18% in the year to Mar 2017, as monthly growth fell from 5.6% to 0.8%

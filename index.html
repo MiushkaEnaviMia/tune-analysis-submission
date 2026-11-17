@@ -851,12 +851,12 @@ main{--v-rev:#e9d5ff;--v-rev-ink:#9333ea}
     <div class="brief-ref sub-ref"><b>Q</b><span>New vs renewing vs reactivated subscribers: define each precisely</span></div>
     <div class="qa">
       <div class="qa-a p22-defbox">
-      <p><b>Each month, every paying subscriber is in exactly one group, set by the dates of their purchases</b></p>
+      <p><b>Each month, every user with access, paying or on a free trial, is in exactly one group, set by the dates of their purchases</b></p>
       <ul>
-        <li><b>Paying in a month</b> (<span class="p22-f" data-go="lineage" title="Computed field: how it is built, tab 1b.1">is_active_paid*</span> = 1): a paid plan, not a free trial, valid on at least one day of the month</li>
-        <li><b>New</b> (<span class="p22-f" data-go="lineage" title="Computed field: how it is built, tab 1b.1">new_paid*</span>): the user's first purchase in the data is in this month (<span class="p22-f" data-go="lineage" title="Computed field: how it is built, tab 1b.1">period_no*</span> = 1)</li>
-        <li><b>Renewing</b> (<span class="p22-f" data-go="lineage" title="Computed field: how it is built, tab 1b.1">renewing_paid*</span>): bought again within 30 days of the last plan's end (early renewals included), or still inside an earlier plan</li>
-        <li><b>Reactivated</b> (<span class="p22-f" data-go="lineage" title="Computed field: how it is built, tab 1b.1">reactivated_paid*</span>): bought again more than 30 days after the last plan ended (<span class="p22-f" data-go="lineage" title="Computed field: how it is built, tab 1b.1">gap_days*</span> &gt; 30, a new <span class="p22-f" data-go="lineage" title="Computed field: how it is built, tab 1b.1">episode_id*</span>); a user who is also New counts as New</li>
+        <li><b>Active in a month</b> (<span class="p22-f" data-go="lineage" title="Computed field: how it is built, tab 1b.1">is_active*</span> = 1): a paid plan or a free trial valid on at least one day of the month</li>
+        <li><b>New</b> (<span class="p22-f" data-go="lineage" title="Computed field: how it is built, tab 1b.1">is_new*</span>): the user's first purchase in the data, paid or free trial, is in this month (<span class="p22-f" data-go="lineage" title="Computed field: how it is built, tab 1b.1">period_no*</span> = 1)</li>
+        <li><b>Renewing</b> (every other active user): bought again within 30 days of the last plan's end (early renewals included), or still inside an earlier plan</li>
+        <li><b>Reactivated</b> (<span class="p22-f" data-go="lineage" title="Computed field: how it is built, tab 1b.1">is_reactivated*</span>): bought again more than 30 days after the last plan ended (<span class="p22-f" data-go="lineage" title="Computed field: how it is built, tab 1b.1">gap_days*</span> &gt; 30, a new <span class="p22-f" data-go="lineage" title="Computed field: how it is built, tab 1b.1">episode_id*</span>); a user who is also New counts as New</li>
       </ul>
       <p class="v3-foot">* Computed field, not in the original files: click it to see how it is built (<button class="linkbtn" data-go="lineage">tab 1b.1 →</button>)</p>
     </div>
@@ -865,7 +865,7 @@ main{--v-rev:#e9d5ff;--v-rev-ink:#9333ea}
     <div class="brief-ref sub-ref"><b>Q</b><span>New vs renewing vs reactivated subscribers: compute it</span></div>
     <div class="qa">
       <div class="qa-a">
-      <p>Almost all paying subscribers in Mar 2017 are Renewing subscribers (<b class="chg-good">96.1%</b>, <b class="chg-good">291,502</b> users), while New subscribers (<b class="chg-bad">2.8%</b>, <b class="chg-bad">8,381</b>) and Reactivated subscribers (<b class="chg-flat">1.2%</b>, <b class="chg-flat">3,491</b>) are very small in both share and count</p><p>Since Sep 2016, fewer New subscribers join each month than paying subscribers leave (<b class="chg-bad">8,872</b> vs <b class="chg-bad">13,870</b> in Feb 2017), so growth now relies on renewals</p><p><b>Keeping subscribers is currently the biggest lever, but it is recommended to also focus on winning New subscribers to reduce this reliance on renewals:</b> over 12 months a New subscriber brings almost as much as a Renewing subscriber (<b>$1,200</b> vs <b>$1,294</b>) and is as likely to still pay a year later · <button class="linkbtn" data-open="p22-rec-more">More detail ↓</button></p><p>From Q1 2016 to Q1 2017, Renewing subscribers grow in both share and average monthly count (<b class="chg-good">+23%</b>), New subscribers <b class="chg-bad">decline</b> in both (<b class="chg-bad">−40%</b> in count), and Reactivated subscribers stay stable at <b class="chg-flat">1%–3%</b> of paying subscribers except in the Jul 2016 billing-gap month</p>
+      <p>Almost all users in Mar 2017 are Renewing users (<b class="chg-good">96.0%</b>, <b class="chg-good">293,739</b> users), while New users (<b class="chg-bad">2.9%</b>, <b class="chg-bad">8,772</b>) and Reactivated users (<b class="chg-flat">1.2%</b>, <b class="chg-flat">3,543</b>) are very small in both share and count</p><p>Since Dec 2016, fewer New users join each month than paying subscribers leave (<b class="chg-bad">9,288</b> vs <b class="chg-bad">13,870</b> in Feb 2017), so growth now relies on renewals</p><p><b>Keeping subscribers is currently the biggest lever, but it is recommended to also focus on winning New subscribers to reduce this reliance on renewals:</b> over 12 months a New subscriber brings almost as much as a Renewing subscriber (<b>$1,200</b> vs <b>$1,294</b>) and is as likely to still pay a year later · <button class="linkbtn" data-open="p22-rec-more">More detail ↓</button></p><p>From Q1 2016 to Q1 2017, Renewing users grow in both share and average monthly count (<b class="chg-good">+20%</b>), New users <b class="chg-bad">decline</b> in both (<b class="chg-bad">−50%</b> in count), and Reactivated users stay stable at <b class="chg-flat">1%–3%</b> of all users except in the Jul 2016 billing-gap month</p>
     </div>
     </div>
 
@@ -3118,12 +3118,12 @@ order by 1;</pre>
 
   <section class="view p4 p4n" id="view-p4" hidden>
     <div style="display:grid;gap:6px">
-      <h1>4.1 · Executive Summary: <span class="h1-side">The base is healthy, but New subscribers decline; Auto-renew and annual plans can lift growth</span></h1>
+      <h1>4.1 · Executive Summary: <span class="h1-side">The base is healthy, but New users decline; Auto-renew and annual plans can lift growth</span></h1>
     </div>
     <div class="qa p4-exec">
     <div class="card p4-bl qa-a">
       <ul class="p4q-ul">
-        <li><b>The base is healthy but slowing:</b> revenue grew <b class="chg-good">+24%</b> (Q1 2017 vs Q1 2016), but New subscribers have been falling since Jan 2016, so growth relies on renewals, a risk if churn rises</li>
+        <li><b>The base is healthy but slowing:</b> revenue grew <b class="chg-good">+24%</b> (Q1 2017 vs Q1 2016), but New users have been falling since Jan 2016, apart from the free-trial waves, so growth relies on renewals, a risk if churn rises</li>
         <li><b>Retention is currently the biggest lever for paying-subscriber growth, while winning New subscribers reduces the reliance on renewals:</b> 3 moves could keep <b class="chg-good">~10K</b> more paying subscribers a year who would otherwise leave (around +3% in paying subscribers &amp; monthly revenue) <span class="nw">(<button class="linkbtn" data-go="p4-recs">4.2 →</button>)</span>
           <ul class="p4-sub"><li>Move Manual users to Auto-renew: ~3,200 <span class="nw">(<button class="linkbtn" data-jump="p4-15k" onclick="document.getElementById('p4-15k').open=true">How ↓</button>)</span></li><li>Win the first renewal: ~5,200 <span class="nw">(<button class="linkbtn" data-jump="p4-15k" onclick="document.getElementById('p4-15k').open=true">How ↓</button>)</span></li><li>Catch failed payments early: ~1,600 <span class="nw">(<button class="linkbtn" data-jump="p4-15k" onclick="document.getElementById('p4-15k').open=true">How ↓</button>)</span></li></ul></li>
         <li><b>Free trials brought about 3× more users, but no more revenue:</b> summing their first 3 months, Jun 2015 &amp; Nov 2016 brought slightly less than the average of the 2 months before &amp; after without a free trial <span class="nw">(<button class="linkbtn" data-jump="p4q3">Q3 ↓</button>)</span></li>
@@ -3136,7 +3136,7 @@ order by 1;</pre>
 
     <div class="p4q" id="p4q1">
       <div class="brief-ref sub-ref"><b>Q1</b><span>How healthy is the subscriber base, and how is it trending?</span></div>
-      <div class="qa"><div class="qa-a"><p><b>The subscriber base is healthy, but its growth is slowing and now relies on renewals:</b></p><ul class="p4q-ul"><li><b>New subscribers are falling:</b> from a peak of <b class="chg-bad">17.3K</b> in Jan 2016 to <b class="chg-bad">8.4K</b> in Mar 2017 (−28% vs Mar 2016) &amp; since Sep 2016 fewer join each month than paying subscribers leave (8.9K vs 13.9K in Feb 2017), so <b>96.1%</b> are now Renewing subscribers (<button class="linkbtn" data-go="p2-flow">2.2 →</button>)</li><li><b>Retention is strong on Auto-renew:</b> <b class="chg-good">81.2%</b> of new Auto-renew subscribers still pay after 12 months vs <b class="chg-bad">44.6%</b> on Manual (<button class="linkbtn" data-go="p3a">3a →</button>)</li><li><b>Revenue still grows:</b> <b class="chg-good">+24%</b> in Q1 2017 vs Q1 2016, mostly from more paying subscribers (<button class="linkbtn" data-go="p2-arpu">2.4 →</button>)</li></ul></div></div>
+      <div class="qa"><div class="qa-a"><p><b>The subscriber base is healthy, but its growth is slowing and now relies on renewals:</b></p><ul class="p4q-ul"><li><b>New users are falling:</b> from <b class="chg-bad">21.9K</b> in Jan 2016 to <b class="chg-bad">8.8K</b> in Mar 2017 (−41% vs Mar 2016) &amp; since Dec 2016 fewer join each month than paying subscribers leave (9.3K vs 13.9K in Feb 2017), so <b>96.0%</b> are now Renewing users (<button class="linkbtn" data-go="p2-flow">2.2 →</button>)</li><li><b>Retention is strong on Auto-renew:</b> <b class="chg-good">81.2%</b> of new Auto-renew subscribers still pay after 12 months vs <b class="chg-bad">44.6%</b> on Manual (<button class="linkbtn" data-go="p3a">3a →</button>)</li><li><b>Revenue still grows:</b> <b class="chg-good">+24%</b> in Q1 2017 vs Q1 2016, mostly from more paying subscribers (<button class="linkbtn" data-go="p2-arpu">2.4 →</button>)</li></ul></div></div>
       <div class="p4q-two">
         <div class="p4q-ch">
           <h3>Paying Subscribers and Their Monthly Growth<span class="scope-tag">Paying subscribers only</span></h3>
@@ -3155,9 +3155,9 @@ order by 1;</pre>
       </div>
       <div class="p4q-two">
         <div class="p4q-ch">
-          <h3>New Subscribers and the Renewing Share<span class="scope-tag">Paying subscribers only</span></h3>
-          <p class="p4q-i"><b>Fewer New subscribers join, so the base now relies on renewals:</b> New paying subscribers fell from a peak of <b class="chg-bad">17.3K</b> in Jan 2016 to <b class="chg-bad">8.4K</b> in Mar 2017, while the Renewing share reached <b>96.1%</b></p>
-          <div class="p4q-lg"><div class="vz-lg"><span><i style="--c:var(--v-mid)"></i>New paying subscribers (left)</span><span><i class="ln" style="--c:var(--v-navy)"></i>Renewing share of paying subscribers (right)</span></div></div>
+          <h3>New Users and the Renewing Share<span class="scope-tag">All users (paying + free)</span></h3>
+          <p class="p4q-i"><b>Fewer New users join, so the base now relies on renewals:</b> New users fell from <b class="chg-bad">21.9K</b> in Jan 2016 to <b class="chg-bad">8.8K</b> in Mar 2017, apart from the free-trial spikes, while the Renewing share reached <b>96.0%</b></p>
+          <div class="p4q-lg"><div class="vz-lg"><span><i style="--c:var(--v-mid)"></i>New users (left)</span><span><i class="ln" style="--c:var(--v-navy)"></i>Renewing share of all users (right)</span></div></div>
           <div class="vz" id="p4c1c"></div>
           <div class="p4q-n"><details class="coh-how fn"><summary><span class="fn-p">+</span> Same data as 2.2</summary><div class="fn-in">Per month, from Apr 2015 (Jan 2015 – Mar 2015 are the warm-up months, as in the New-by-channel graph on 2.2) · Renewing share = Renewing subscribers ÷ paying subscribers in the month (<button class="linkbtn" data-go="p2-flow">2.2 →</button>)</div></details></div>
         </div>
@@ -3455,17 +3455,17 @@ order by 1;</pre>
       gapReal = b.dataset.g === "in"; document.querySelectorAll("#p4c1b-sp button").forEach((x) => x.setAttribute("aria-pressed", x === b));
       document.getElementById("p4c1b-dl").style.display = gapReal ? "none" : ""; draw1b(document.getElementById("p4c1b")); }));
 
-    // Q1c · New paying subscribers per month (bars, left) and Renewing share of paying subscribers (line, right), Apr 2015 – Mar 2017 (mart_metrics_month.new_paid, renewing_pct; replaces the quarterly mix)
-    const NW = [9639,8543,8089,11662,12767,11789,14785,13826,12719,17256,14088,11711,6810,8501,9077,11700,10441,7487,7806,8046,9904,8536,8872,8381];
-    const RN = [94.0,94.1,85.4,92.7,92.5,93.1,92.0,90.8,93.6,90.8,92.3,94.0,95.1,94.9,94.7,86.4,93.9,96.2,96.1,96.0,95.1,94.5,95.9,96.1];
-    const L3 = lab(3, 24), NK = [9, 23];  // Jan 2016 peak and Mar 2017, as in the bullet
-    mount("p4c1c", (e) => chart(e, { labels: L3, H: H - 40, xShow: every(3), gap: 0.62, aria: "New paying subscribers per month fell from 17.3K in Jan 2016 to 8.4K in Mar 2017, while the Renewing share of paying subscribers reached 96.1%",
-      y: { min: 0, max: 40000, step: 10000, fmt: (v) => (v ? v / 1000 + "K" : "0") }, y2: { min: 60, max: 100, step: 10, fmt: (v) => v + "%" }, yColor: "var(--v-mid)", y2Color: "var(--v-navy)",
+    // Q1c · New users per month (bars, left) and Renewing share of all users (line, right), all users with access, paying or free trial, Apr 2015 – Mar 2017 (fct_user_month is_active, is_new, is_reactivated; same data as 2.2)
+    const NW = [11516,10157,45270,15326,18278,18091,21766,24509,23915,21864,18004,14887,9700,10766,13278,15893,16611,16118,24697,36173,10652,9566,9288,8772];
+    const RN = [93.0,93.2,70.4,91.0,90.2,90.5,89.4,87.0,89.5,89.5,91.0,93.0,94.0,94.0,93.0,85.1,91.6,93.0,89.6,86.3,94.9,94.1,95.8,96.0];
+    const L3 = lab(3, 24), NK = [9, 23];  // Jan 2016 and Mar 2017, as in the bullet
+    mount("p4c1c", (e) => chart(e, { labels: L3, H: H - 40, xShow: every(3), gap: 0.62, aria: "New users per month, paying and free, fell from 21.9K in Jan 2016 to 8.8K in Mar 2017, while the Renewing share of all users reached 96.0%",
+      y: { min: 0, max: 60000, step: 15000, fmt: (v) => (v ? v / 1000 + "K" : "0") }, y2: { min: 40, max: 100, step: 15, fmt: (v) => v + "%" }, yColor: "var(--v-mid)", y2Color: "var(--v-navy)",
       series: [{ type: "bar", values: NW, color: C.mid }, { type: "line", axis: "r", values: RN, color: C.navy, w: 2.2, dots: true }],
       deco: (o) => NK.map((i) => { const t = (NW[i] / 1000).toFixed(1) + "K", cy = o.y(NW[i]) - 13, cx = o.x(i) - (o.narrow && i === 23 ? 10 : 0);  // last mark pulled left on phones so it clears the right axis
         return `<ellipse cx="${cx}" cy="${cy}" rx="${o.narrow ? 19 : 21}" ry="10" fill="var(--surface)" stroke="var(--v-red)" stroke-width="1.6"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" class="vz-val" style="fill:var(--v-red)">${t}</text>`; }).join("")
-        + `<text x="${o.x(23)}" y="${o.y2(96.1) - 9}" text-anchor="end" class="vz-val" style="fill:var(--v-navy)">96.1%</text>`,
-      tip: (i) => `<b>${L3[i]}</b>` + row("New paying subscribers", n0(NW[i])) + row("Renewing share", p1(RN[i])) }));
+        + `<text x="${o.x(23)}" y="${o.y2(96.0) - 9}" text-anchor="end" class="vz-val" style="fill:var(--v-navy)">96.0%</text>`,
+      tip: (i) => `<b>${L3[i]}</b>` + row("New users", n0(NW[i])) + row("Renewing share", p1(RN[i])) }));
 
     // Q1d · 12-month paid retention, 30-day plans, Auto-renew vs Manual: same graph as 3a card 2 (RET)
     const RA2 = [100, 93.1, 88.7, 86.0, 85.6, 85.7, 86.2, 85.4, 84.5, 83.8, 83.1, 82.4, 81.2], RM2 = [100, 72.0, 70.1, 62.9, 57.8, 54.7, 52.1, 49.4, 46.9, 45.8, 44.6, 45.3, 44.6];
