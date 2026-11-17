@@ -2130,7 +2130,7 @@ const P23_TYPE = [["2015-02",1.98,2249,15.1,1943,0.09,4],["2015-03",2.32,2673,17
     hand: (d) => `<b>When only Manual users are compared, plan length has a much smaller effect on churn:</b> 30-day plans churn ${d.p30[0].toFixed(1)}% per renewal vs ${d.multi.toFixed(1)}% for Multi and ${d.ann.toFixed(1)}% for Annual plans, and an Annual plan comes up for renewal only once a year`,
   };
   const lg = document.getElementById("p3c1-lg");
-  lg.innerHTML = `<span><i class="dsh"></i>Auto-renew</span><span><i style="background:var(--p3-man)"></i>Manual</span><span><i style="background:var(--p3-multi)"></i>Multi (2–10 months)</span><span><i style="background:var(--p3-annual)"></i>Annual (12+ months)</span>`;
+  lg.innerHTML = `<span><i class="dsh"></i>Auto-renew</span><span><i style="background:var(--p3-man)"></i>Manual</span><b class="lg-br"></b><span><i style="background:var(--p3-multi)"></i>Multi (2–10 months)</span><span><i style="background:var(--p3-annual)"></i>Annual (12+ months)</span>`;
   function draw() {
     const W = el.clientWidth; if (!W) return;
     const nar = W < 420;  // phones: the two panels sit one above the other, so labels don't overlap
@@ -5057,7 +5057,10 @@ h2+.mf-row,.mf-row{margin:-4px 0 6px;text-align:center;font-size:13px;color:var(
 /* 3a: the "+" fold line under each graph is small and tight, so the chart gets the room */#view-p3a .p3g>.p3-card>.cx-note:not(#_),#view-p3a .p3g>.p3-card>.cx-note:not(#_) details>summary{font-size:13px!important;line-height:1.3}#view-p3a .p3g>.p3-card>.cx-note:not(#_) details>summary{font-weight:600!important}#view-p3a .p3g>.p3-card>.cx-note:not(#_){margin-top:-4px}
 #view-p3a .p3g>.p3-card>.p3-cc:not(#_){padding:8px 10px 8px 12px!important;line-height:1.5!important;min-height:0!important}
 #view-p3a .p3g>.p3-card>.p3-lg:not(#_){gap:4px 14px!important;margin-top:0!important}
-#view-p3a .p3-lg[data-per]::after{content:attr(data-per);color:var(--v-mute);font-size:12.5px}  /* period of a graph drawn by the older engine */
+#view-p3a .p3-lg[data-per]::after{content:attr(data-per);color:var(--v-mute);font-size:12.5px}
+/* 3a card 1 legend (user 11-17): payment types on line 1, plan lengths on line 2, period on its own line under them */
+#p3c1-lg .lg-br{flex-basis:100%;height:0}
+#p3c1-lg[data-per]::after{flex-basis:100%;text-align:center}  /* period of a graph drawn by the older engine */
 /* graphs 3 and 4 have no toggle: the empty toggle row takes no space, so the text boxes move up and the charts get the height */
 #view-p3a .p3g>.p3-card>h2+div:empty:not(#_){height:0;min-height:0;margin-top:-8px}
 @media (max-width:640px){.vz-lg .mf{font-size:0;text-decoration:none}.vz-lg .mf::after{content:"SQL";font-size:11.5px;font-family:var(--mono,ui-monospace,monospace);color:var(--accent);text-decoration:underline dotted;text-underline-offset:3px}}
