@@ -3659,7 +3659,8 @@ order by 1;</pre>
   <!-- LEADERSHIP DECK: purple tab at the end of the tab bar (#deck) -->
   <section class="view" id="view-deck" hidden>
     <style>
-      #view-deck .deck-list{max-width:1000px;margin:0 auto;display:grid;gap:18px;padding:4px 0 24px}
+      body.deck-on .topwrap{position:static!important}
+      #view-deck#view-deck #deck-list#deck-list.deck-list{max-width:950px!important;margin:0 auto;display:grid;gap:18px;padding:4px 0 24px}
       #view-deck .deck-list img{display:block;width:100%;height:auto;aspect-ratio:16/9;border:1px solid #dbe4f0;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(20,40,80,.06)}
     </style>
     <div class="deck-list" id="deck-list"></div>
@@ -3725,6 +3726,7 @@ function show(view) {
   $("#subnav").innerHTML = GROUPS[g].map(([id, name]) => `<button type="button" class="stab${id === view ? " on" : ""}" data-v="${id}">${esc(name)}</button>`).join("");
   $$("#subnav .stab").forEach((b) => b.addEventListener("click", () => show(b.dataset.v)));
   $$(".view").forEach((v) => (v.hidden = v.id !== "view-" + view));
+  document.body.classList.toggle("deck-on", view === "deck");  // deck tab: the header scrolls away so a whole slide fits the screen
   if (view === "dq" && !$("#dqframe").src) $("#dqframe").src = "dq.html";
   if (view === "explorer") bootEngine();
   if (view === "deck" && !$("#deck-list").childElementCount) $("#deck-list").innerHTML = Array.from({ length: 22 }, (_, i) => `<img src="deck/s${String(i + 1).padStart(2, "0")}.jpg?v=${DECKV}" alt="Slide ${i + 1}" loading="lazy" width="1440" height="810">`).join("");
