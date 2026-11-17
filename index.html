@@ -3726,7 +3726,7 @@ function show(view) {
   $$(".view").forEach((v) => (v.hidden = v.id !== "view-" + view));
   if (view === "dq" && !$("#dqframe").src) $("#dqframe").src = "dq.html";
   if (view === "explorer") bootEngine();
-  if (view === "deck" && !$("#deck-list").childElementCount) $("#deck-list").innerHTML = Array.from({ length: 21 }, (_, i) => `<img src="deck/s${String(i + 1).padStart(2, "0")}.jpg" alt="Slide ${i + 1}" loading="lazy" width="1440" height="810">`).join("");
+  if (view === "deck" && !$("#deck-list").childElementCount) $("#deck-list").innerHTML = Array.from({ length: 22 }, (_, i) => `<img src="deck/s${String(i + 1).padStart(2, "0")}.jpg" alt="Slide ${i + 1}" loading="lazy" width="1440" height="810">`).join("");
   if (location.hash.slice(1) !== view) history.replaceState(null, "", "#" + view);
 }
 $$(".tab").forEach((b) => b.addEventListener("click", () => show(GROUPS[b.dataset.group][0][0])));
