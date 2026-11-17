@@ -870,32 +870,32 @@ main{--v-rev:#e9d5ff;--v-rev-ink:#9333ea}
     </div>
 
     <div class="card v3-card">
-      <h2>Subscriber Mix: Share by Quarter</h2>
-      <p class="v3-c ok"><b>The mix keeps shifting toward Renewing:</b> Renewing was <b class="chg-good">95.5%</b> of paying subscribers in Q1 2017, up from 92.4% in Q1 2016, while New's share halved from <b class="chg-bad">5.7%</b> to <b class="chg-bad">2.8%</b></p>
+      <h2>Subscriber Mix: Share by Quarter<span class="scope-tag">All users (paying + free)</span></h2>
+      <p class="v3-c ok"><b>The mix keeps shifting toward Renewing:</b> Renewing was <b class="chg-good">95.3%</b> of all users in Q1 2017, up from 91.2% in Q1 2016, while New's share more than halved from <b class="chg-bad">6.9%</b> to <b class="chg-bad">3.0%</b></p>
       <div class="vz-lg p22-lg"><span><i style="--c:var(--p22-ren)"></i>Renewing</span><span><i style="--c:var(--p22-new)"></i>New</span><span><i style="--c:var(--p22-rea)"></i>Reactivated</span></div>
       <div class="vz" id="p22-q"></div>
-      <div class="v3-foot"><details class="coh-how fn"><summary><span class="fn-p">+</span> *Q1-15 = Feb 2015 and Mar 2015 only</summary><div class="fn-in">Share of paying subscribers in the quarter · numbers above columns: New and Reactivated, in their colors · *Q1-15 = Feb 2015 and Mar 2015 only (files start 01/01/15, so in Jan 2015 everyone is New)</div></details></div>
+      <div class="v3-foot"><details class="coh-how fn"><summary><span class="fn-p">+</span> *Q1-15 = Feb 2015 and Mar 2015 only</summary><div class="fn-in">Share of all users with access in the quarter, paying or free trial · numbers above columns: New and Reactivated, in their colors · *Q1-15 = Feb 2015 and Mar 2015 only (files start 01/01/15, so in Jan 2015 everyone is New)</div></details></div>
     </div>
 
 
     <div class="p22-two">
       <div class="card v3-card">
-        <h2>Retention Base: Total vs Renewing</h2>
+        <h2>Retention Base: Total vs Renewing<span class="scope-tag">Paying subscribers only</span></h2>
         <p class="v3-c ok"><b>Core retention scales steadily:</b> Renewing tracks Total paying up to <b class="chg-good">291,502</b> in Mar 2017 (<b class="chg-good">+21%</b> vs Mar 2016)</p>
         <div class="vz-lg p22-lg"><span><i class="ln dash" style="--c:var(--p22-tot)"></i>Total paying</span><span><i class="ln thick" style="--c:var(--p22-ren)"></i>Renewing</span></div>
         <div class="vz" id="p22-l1"></div>
       </div>
       <div class="card v3-card">
-        <h2>Growth Engine: New vs Reactivated</h2>
-        <p class="v3-c warn"><b>New acquisition is shrinking:</b> New subscribers fell to <b class="chg-bad">8,381</b> in Mar 2017 (<b class="chg-bad">−28%</b> vs Mar 2016), while Reactivated subscribers stay at about <b class="chg-flat">1%–3%</b> of paying subscribers from Jul 2015 on, except for the Jul 2016 billing-gap spike</p>
+        <h2>Growth Engine: New vs Reactivated<span class="scope-tag">All users (paying + free)</span></h2>
+        <p class="v3-c warn"><b>New acquisition is shrinking:</b> New users fell to <b class="chg-bad">8,772</b> in Mar 2017 (<b class="chg-bad">−41%</b> vs Mar 2016), while Reactivated users stay at about <b class="chg-flat">1%–3%</b> of all users from Jul 2015 on, except for the Jul 2016 billing-gap spike</p>
         <div class="vz-lg p22-lg"><span><i class="ln thick" style="--c:var(--p22-new)"></i>New</span><span><i class="ln thick" style="--c:var(--p22-rea)"></i>Reactivated</span></div>
         <div class="vz" id="p22-l2"></div>
         <p class="v3-foot">Own scale, so the small groups stay readable</p>
         <ul class="vz-flg">
-          <li><button class="flg-go" data-flag="p25-r-0415" style="color:var(--p22-rea)">⚑ Jun 2015 Billing gap</button>: 18,326 Reactivated</li>
-          <li><button class="flg-go" data-flag="p25-r-0316" style="color:var(--p22-rea)">⚑ Jul 2016 Billing gap</button>: 25,205 Reactivated</li>
-          <li><button class="flg-go" data-flag="p25-r-trial" style="color:var(--p22-new)">⚑ Jun 2015 Free-trial wave</button>: New subscribers did not rise (8,089 vs 8,543 in May 2015)</li>
-          <li><button class="flg-go" data-flag="p25-r-trial" style="color:var(--p22-new)">⚑ Nov 2016 Free-trial wave</button>: New subscribers stayed flat (8,046 vs 7,806 in Oct 2016)</li>
+          <li><button class="flg-go" data-flag="p25-r-0415" style="color:var(--p22-rea)">⚑ Jun 2015 Billing gap</button>: 20,768 Reactivated users</li>
+          <li><button class="flg-go" data-flag="p25-r-0316" style="color:var(--p22-rea)">⚑ Jul 2016 Billing gap</button>: 25,853 Reactivated users</li>
+          <li><button class="flg-go" data-flag="p25-r-trial" style="color:var(--p22-new)">⚑ Jun 2015 Free-trial wave</button>: 45,270 New users, only 8,089 of them paying</li>
+          <li><button class="flg-go" data-flag="p25-r-trial" style="color:var(--p22-new)">⚑ Nov 2016 Free-trial wave</button>: 36,173 New users, only 8,046 of them paying</li>
         </ul>
       </div>
     </div>
@@ -1442,18 +1442,20 @@ main{--v-rev:#e9d5ff;--v-rev-ink:#9333ea}
   }));
 
   /* ---------- 2.2 ---------- */
-  // quarterly mix from P2_DATA (same as mart_metrics_month); Q1-15 = 02-15 and 03-15 only (01-15 is the warm-up month)
+  // quarterly mix of ALL users with access (paying + free trial): fct_user_month is_active, is_new, is_reactivated; Q1-15 = 02-15 and 03-15 only (01-15 is the warm-up month)
+  // P22A: month -> [New users, Reactivated users] among all users with access; Renewing = active_any - New - Reactivated
+  const P22A = {"2015-01":[133585,0],"2015-02":[12173,164],"2015-03":[29812,591],"2015-04":[11516,832],"2015-05":[10157,977],"2015-06":[45270,20768],"2015-07":[15326,2264],"2015-08":[18278,2122],"2015-09":[18091,2725],"2015-10":[21766,2449],"2015-11":[24509,7313],"2015-12":[23915,2960],"2016-01":[21864,5594],"2016-02":[18004,6000],"2016-03":[14887,3939],"2016-04":[9700,5140],"2016-05":[10766,3945],"2016-06":[13278,4367],"2016-07":[15893,25853],"2016-08":[16611,7654],"2016-09":[16118,4728],"2016-10":[24697,7274],"2016-11":[36173,9890],"2016-12":[10652,4759],"2017-01":[9566,8176],"2017-02":[9288,3450],"2017-03":[8772,3543]};
   const QS = [];
   P2_DATA.filter((r) => r[0] >= "2015-02").forEach((r) => {
     const q = "Q" + Math.ceil(+r[0].slice(5, 7) / 3) + "-" + r[0].slice(2, 4) + (r[0] < "2015-04" ? "*" : "");
     let o = QS.find((x) => x.q === q); if (!o) QS.push((o = { q, p: 0, n: 0, r: 0, rn: 0, k: 0 }));
-    o.p += r[F.p]; o.n += r[F.n]; o.r += r[F.r]; o.rn += r[5]; o.k++;
+    const a = P22A[r[0]]; o.p += r[F.a]; o.n += a[0]; o.r += a[1]; o.rn += r[F.a] - a[0] - a[1]; o.k++;
   });
   const qRen = QS.map((o) => (100 * o.rn) / o.p), qNew = QS.map((o) => (100 * o.n) / o.p), qRea = QS.map((o) => (100 * o.r) / o.p);
   const pctL = (v) => (v < 10 ? v.toFixed(1) : v.toFixed(0)) + "%";
   const K22 = { ren: "var(--p22-ren)", nw: "var(--p22-new)", rea: "var(--p22-rea)", tot: "var(--p22-tot)" };
   mount("p22-q", (el) => chart(el, {
-    labels: QS.map((o) => o.q), H: 280, T: 50, gap: 0.62, stacked: true, aria: "Quarterly subscriber mix: Renewing, New and Reactivated as % of paying subscribers",
+    labels: QS.map((o) => o.q), H: 280, T: 50, gap: 0.62, stacked: true, aria: "Quarterly mix of all users, paying and free: Renewing, New and Reactivated as % of all users",
     y: { min: 0, max: 100, step: 25, fmt: (v) => v + "%" },
     series: [{ type: "bar", values: qRen, color: K22.ren, label: pctL, labelPos: "in" },
       { type: "bar", values: qNew, color: K22.nw, label: pctL, labelPos: "top", labelRow: 1, labelColor: K22.nw },
@@ -1461,9 +1463,9 @@ main{--v-rev:#e9d5ff;--v-rev-ink:#9333ea}
     arrows: [{ from: QS.findIndex((o) => o.q === "Q1-16"), to: QS.length - 1, v0: 76, v1: 84, color: "var(--v-mid)", ink: K22.ren, labelV: 63,
       label: "Renewing " + qRen[QS.findIndex((o) => o.q === "Q1-16")].toFixed(1) + "% → " + qRen[QS.length - 1].toFixed(1) + "%", short: "Renewing ↑" }],
     tip: (i) => `<b>${QS[i].q}</b>` + tipRow("Renewing", qRen[i].toFixed(1) + "%") + tipRow("New", qNew[i].toFixed(1) + "%") + tipRow("Reactivated", qRea[i].toFixed(1) + "%") +
-      `<div class="mute">${n0(QS[i].p / QS[i].k)} paying a month</div>`,
+      `<div class="mute">${n0(QS[i].p / QS[i].k)} users a month (paying + free)</div>`,
   }));
-  const M22 = rng("2015-04", "2017-03"), L22 = M22.map((r) => ml(r[0])), nw = col(M22, "n"), re = col(M22, "r"), pay = col(M22, "p"), ren = M22.map((r) => r[5]);
+  const M22 = rng("2015-04", "2017-03"), L22 = M22.map((r) => ml(r[0])), nw = M22.map((r) => P22A[r[0]][0]), re = M22.map((r) => P22A[r[0]][1]), pay = col(M22, "p"), ren = M22.map((r) => r[5]);
   const half = (lab, i, narrow) => (VZ.mnum(lab) - 1) % (narrow ? 6 : 2) === 0; // every 2 months (every 6 on phones: month names are wider)
   const kF = (v) => (v ? v / 1000 + "K" : "0");
   mount("p22-l1", (el) => chart(el, {
@@ -1474,13 +1476,13 @@ main{--v-rev:#e9d5ff;--v-rev-ink:#9333ea}
   }));
   const ix22 = (m) => L22.indexOf(m);
   mount("p22-l2", (el) => chart(el, {
-    labels: L22, xShow: half, H: 260, T: 20, aria: "New and reactivated paying subscribers per month",
-    y: { min: 0, max: 30000, step: 10000, fmt: kF },
+    labels: L22, xShow: half, H: 260, T: 20, aria: "New and reactivated users per month, paying and free",
+    y: { min: 0, max: 50000, step: 10000, fmt: kF },
     series: [{ type: "line", values: nw, color: K22.nw, w: 2.6 }, { type: "line", values: re, color: K22.rea, w: 2.6 }],
     flags: [{ i: ix22("Jun-15"), v: re[ix22("Jun-15")], dot: re[ix22("Jun-15")], text: "Jun 2015 Billing gap", short: "Jun-15 Gap", color: K22.rea, anchor: "start", to: "p25-r-0415" },
       { i: ix22("Jul-16"), v: re[ix22("Jul-16")], dot: re[ix22("Jul-16")], text: "Jul 2016 Billing gap", short: "Jul-16 Gap", color: K22.rea, anchor: "end", to: "p25-r-0316" },
       { i: ix22("Jun-15"), top: true, dot: nw[ix22("Jun-15")], text: "Jun 2015 Free-trial wave", short: "Trials", color: K22.nw, to: "p25-r-trial" },
-      { i: ix22("Nov-16"), v: 12500, dot: nw[ix22("Nov-16")], text: "Nov 2016 Free-trial wave", short: "Nov-16 Trials", color: K22.nw, anchor: "end", to: "p25-r-trial" }],
+      { i: ix22("Nov-16"), v: 43000, dot: nw[ix22("Nov-16")], text: "Nov 2016 Free-trial wave", short: "Nov-16 Trials", color: K22.nw, anchor: "end", to: "p25-r-trial" }],
     tip: (i) => `<b>${L22[i]}</b>` + tipRow("New", n0(nw[i])) + tipRow("Reactivated", n0(re[i])),
   }));
 
@@ -2962,6 +2964,7 @@ order by 1;</pre>
   .p4q-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(5,auto);column-gap:20px;row-gap:0}
   .p4q-ch{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:5px;min-width:0;align-content:start}
   .p4q-ch h3{margin:4px 0 0;text-align:center;font-size:16px!important;line-height:1.3;color:var(--navy)}
+  .scope-tag{display:block;margin-top:3px;font-size:12.5px;font-weight:600;letter-spacing:.01em;color:var(--v-mid)}
   .p4q-i{margin:0;border-left:3px solid color-mix(in srgb,var(--accent) 45%,var(--line));padding:1px 0 1px 10px;font-size:13.5px;line-height:1.42;color:var(--fg);text-wrap:pretty}
   .p4q-lg{display:grid;gap:4px;justify-items:center;align-content:end;padding-top:10px}
   .p4q-lg .vz-lg{font-size:12.5px;gap:2px 16px}
@@ -3136,7 +3139,7 @@ order by 1;</pre>
       <div class="qa"><div class="qa-a"><p><b>The subscriber base is healthy, but its growth is slowing and now relies on renewals:</b></p><ul class="p4q-ul"><li><b>New subscribers are falling:</b> from a peak of <b class="chg-bad">17.3K</b> in Jan 2016 to <b class="chg-bad">8.4K</b> in Mar 2017 (−28% vs Mar 2016) &amp; since Sep 2016 fewer join each month than paying subscribers leave (8.9K vs 13.9K in Feb 2017), so <b>96.1%</b> are now Renewing subscribers (<button class="linkbtn" data-go="p2-flow">2.2 →</button>)</li><li><b>Retention is strong on Auto-renew:</b> <b class="chg-good">81.2%</b> of new Auto-renew subscribers still pay after 12 months vs <b class="chg-bad">44.6%</b> on Manual (<button class="linkbtn" data-go="p3a">3a →</button>)</li><li><b>Revenue still grows:</b> <b class="chg-good">+24%</b> in Q1 2017 vs Q1 2016, mostly from more paying subscribers (<button class="linkbtn" data-go="p2-arpu">2.4 →</button>)</li></ul></div></div>
       <div class="p4q-two">
         <div class="p4q-ch">
-          <h3>Paying Subscribers and Their Monthly Growth</h3>
+          <h3>Paying Subscribers and Their Monthly Growth<span class="scope-tag">Paying subscribers only</span></h3>
           <p class="p4q-i"><b>Paying subscribers keep growing, but more slowly:</b> <b class="chg-good">+18%</b> in Mar 2017 vs Mar 2016, as monthly growth fell from 5.6% (2015) to <b class="chg-bad">0.8%</b> (Q1 2017)</p>
           <div class="p4q-lg"><div class="vz-lg"><span><i class="ln" style="--c:var(--v-navy)"></i>Paying subscribers* (left)</span><span><i class="ln thick" style="--c:var(--v-mid)"></i>Monthly growth, yearly average (right)</span></div></div>
           <div class="vz" id="p4c1a"></div>
@@ -3152,7 +3155,7 @@ order by 1;</pre>
       </div>
       <div class="p4q-two">
         <div class="p4q-ch">
-          <h3>New Subscribers and the Renewing Share</h3>
+          <h3>New Subscribers and the Renewing Share<span class="scope-tag">Paying subscribers only</span></h3>
           <p class="p4q-i"><b>Fewer New subscribers join, so the base now relies on renewals:</b> New paying subscribers fell from a peak of <b class="chg-bad">17.3K</b> in Jan 2016 to <b class="chg-bad">8.4K</b> in Mar 2017, while the Renewing share reached <b>96.1%</b></p>
           <div class="p4q-lg"><div class="vz-lg"><span><i style="--c:var(--v-mid)"></i>New paying subscribers (left)</span><span><i class="ln" style="--c:var(--v-navy)"></i>Renewing share of paying subscribers (right)</span></div></div>
           <div class="vz" id="p4c1c"></div>
@@ -4763,9 +4766,9 @@ main{--sp-a:#1e3a8a;--sp-b:#60a5fa;--sp-c:#2563eb;--sp-d:#bfdbfe;--sp-e:#94a3b8;
     card.appendChild(alt); const box = null;
     // toggle sits under the insight, right above the legend (saves space)
     const place = (on) => { const i = on ? alt.firstElementChild : orig.find((c) => c.tagName === "P"); if (i) i.after(bar); else if (h2) h2.after(bar); else (card || box).prepend(bar); }; place(false);
-    const t0 = h2.textContent, [b0, b1, u0, u1] = bar.querySelectorAll("button"), uBox = bar.querySelector(".sp-u");
+    const t0 = h2.innerHTML, [b0, b1, u0, u1] = bar.querySelectorAll("button"), uBox = bar.querySelector(".sp-u");
     const set = (on) => { place(on); b0.setAttribute("aria-pressed", !on); b1.setAttribute("aria-pressed", on); alt.hidden = !on; if (uBox) uBox.hidden = !on;
-      orig.forEach((c) => (c.style.display = on ? "none" : "")); h2.textContent = on ? o.title : t0; };
+      orig.forEach((c) => (c.style.display = on ? "none" : "")); h2.innerHTML = on ? o.title : t0; };
     b0.onclick = () => set(false); b1.onclick = () => set(true);
     // Count / Share (%): share = the segment's % of the column total; the insight sentence and footnote switch with it
     let pct = false; const plot = () => document.getElementById(id + "-split");
@@ -4802,7 +4805,7 @@ main{--sp-a:#1e3a8a;--sp-b:#60a5fa;--sp-c:#2563eb;--sp-d:#bfdbfe;--sp-e:#94a3b8;
     let o = Q.find((x) => x.q === q); if (!o) Q.push((o = { q, k: 0, v: CH.map(() => 0) })); o.k++; CH.forEach((c, j) => (o.v[j] += SP.ch[c][i])); });
   const QV = CH.map((c, j) => Q.map((o) => o.v[j] / o.k)), QT = Q.map((o, i) => sum(QV.map((s) => s[i])));
   addSplit("p22-q", {
-    name: "New by channel", title: "New by Acquisition Channel", cls: "warn",
+    name: "New by channel", title: 'New by Acquisition Channel<span class="scope-tag">Paying subscribers only</span>', cls: "warn",
     concl: "<b>Channel 7 caused half the drop in New subscribers:</b> New count Q1 2017: <b class='chg-bad'>8,596</b> a month (Q1 2016: 14,352, <b class='chg-bad'>−40%</b>), and Channel 7 alone fell from 6,198 to <b class='chg-bad'>3,165</b>",
     legend: CH.map((c, j) => [CC[j], c]),
     foot: FN("Channels are codes, no names", "Count = average New a month in the quarter · acquisition_channel from users.csv (codes only, no names) · Other = Unknown and small channels"),
