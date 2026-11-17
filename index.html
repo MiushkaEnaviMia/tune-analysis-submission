@@ -3558,6 +3558,15 @@ order by 1;</pre>
     mount("p4m3b", arrow("~1,600", nBar([7700, 6100], 10000, 2000)));
     })();
   </script>
+
+  <!-- LEADERSHIP DECK: not in the tab bar, opened only by #deck -->
+  <section class="view" id="view-deck" hidden>
+    <style>
+      #view-deck .deck-list{max-width:1000px;margin:0 auto;display:grid;gap:18px;padding:4px 0 24px}
+      #view-deck .deck-list img{display:block;width:100%;height:auto;aspect-ratio:16/9;border:1px solid #dbe4f0;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(20,40,80,.06)}
+    </style>
+    <div class="deck-list" id="deck-list"></div>
+  </section>
 </main>
 <footer class="pad">Queries run in your browser with DuckDB; the data is read in parts as needed, so the first query on a large table can take a few seconds. Nothing can be changed. Code: <a class="code" href="https://github.com/MiushkaEnaviMia/tune-analysis-submission" target="_blank" rel="noopener">GitHub repository</a></footer>
 
@@ -3598,6 +3607,7 @@ const GROUPS = {
   p3: [["p3a", "3a · Which factors matter"], ["p3a-act", "3a · What I would act on"]],
   p4: [["p4", "4.1 · Four questions"], ["p4-recs", "4.2 · Three recommendations"], ["p4-gaps", "4.3 · What I can't answer yet"]],
   p5: [["p5a", "5a · Annual-plan test"], ["p5b", "5b · AI process log"]],
+  deck: [["deck", "Leadership deck"]],
 };
 // old hashes that now live under a new id
 const ALIAS = { p2: "p2-active", p3: "p3a", p3b: "p3a", p5: "p5a" };
@@ -3619,6 +3629,7 @@ function show(view) {
   $$(".view").forEach((v) => (v.hidden = v.id !== "view-" + view));
   if (view === "dq" && !$("#dqframe").src) $("#dqframe").src = "dq.html";
   if (view === "explorer") bootEngine();
+  if (view === "deck" && !$("#deck-list").childElementCount) $("#deck-list").innerHTML = Array.from({ length: 19 }, (_, i) => `<img src="deck/s${String(i + 1).padStart(2, "0")}.jpg" alt="Slide ${i + 1}" loading="lazy" width="1440" height="810">`).join("");
   if (location.hash.slice(1) !== view) history.replaceState(null, "", "#" + view);
 }
 $$(".tab").forEach((b) => b.addEventListener("click", () => show(GROUPS[b.dataset.group][0][0])));
