@@ -3185,6 +3185,37 @@ order by 1;</pre>
           <div class="p4q-n"><details class="coh-how fn"><summary><span class="fn-p">+</span> * Two cases where payment type is not the whole story</summary><div class="fn-in">Channel 4 also churns about twice as much as Channel 7 on Auto-renew, and City 9's Manual users churn 33% per renewal vs 17%–22% in the other large cities (<button class="linkbtn" data-go="p3a">3a →</button>)</div></details></div>
         </div>
       </div>
+      <style>
+  /* Share of paying subscribers vs 3M ARPPU tables (Part 4 Q2 + Q4); scoped to .mx4 */
+  .mx4{--mx4-fpos:#0e6b2c;--mx4-fneg:#c0101a;--mx4-na:#f4f6f9;--mx4-div:#8fb6e3}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mx4{--mx4-fpos:#5fd07f;--mx4-fneg:#ff5a5a;--mx4-na:#1a2a3a;--mx4-div:#4f86c6}}
+  :root[data-theme="dark"] .mx4{--mx4-fpos:#5fd07f;--mx4-fneg:#ff5a5a;--mx4-na:#1a2a3a;--mx4-div:#4f86c6}
+  #view-p4 .p4q-two.mx4{grid-template-columns:minmax(0,1fr);grid-template-rows:none;border-top:1.5px solid var(--v-qa-line);padding-top:14px;margin-top:4px}
+  .mx4>.p4q-ch{grid-row:auto;grid-template-rows:none;row-gap:6px}
+  .mx4 ul.p4q-i{list-style:disc;padding-left:28px;display:grid;gap:4px}
+  .mx4 [hidden]{display:none!important}
+  .mx4 ul.p4q-i li{letter-spacing:normal!important;word-spacing:normal!important}
+  .mx4 .p4q-lg{padding-top:4px}
+  .mx4-lg i.mx4-sw{width:70px;height:11px;border-radius:2px;background:linear-gradient(90deg,var(--coh-lo),var(--coh-mid),var(--coh-hi))}
+  .mx4-lg i.mx4-ob{width:18px;height:11px;border-radius:2px;border:3px solid;box-sizing:border-box;background:none}
+  .mx4 .mx4-sp{display:flex;gap:6px;align-items:center;justify-content:center;font-size:13px;color:var(--muted);margin-top:2px}
+  .mx4 .mx4-sp button{font:inherit;font-size:13px;padding:2px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--fg);cursor:pointer}
+  .mx4 .mx4-sp button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--surface)}
+  .mx4-tw{overflow-x:auto;max-width:100%;padding:2px 0}
+  main .mx4 table.mx4-t{border-collapse:collapse;margin:0 auto;font-variant-numeric:tabular-nums;font-size:13.5px}
+  main .mx4 table.mx4-t :is(th,td){padding:6px 4px;text-align:center;white-space:nowrap;border:0!important;border-bottom:1px solid var(--line)!important;background:none;color:var(--fg);font-family:inherit;letter-spacing:normal;text-transform:none}
+  main .mx4 table.mx4-t th{font-weight:600;font-size:12px;color:var(--muted)}
+  main .mx4 table.mx4-t th.grp{font-size:12.5px;color:var(--fg)}
+  main .mx4 table.mx4-t :is(td,th).c{width:66px;min-width:66px;max-width:66px}
+  main .mx4 table.mx4-t td.v{font-size:15px;font-weight:500}
+  main .mx4 table.mx4-t :is(td,th).sp{width:10px;min-width:10px;padding:0;border-bottom:0!important}
+  main .mx4 table.mx4-t tr.avg td{border-top:2px solid var(--line)!important;border-bottom:0!important;font-weight:600;color:var(--muted)}
+  main .mx4 table.mx4-t :is(td,th):first-child{text-align:left;font-weight:500;padding-right:14px}
+  main .mx4 table.mx4-t td.na{background:var(--mx4-na);color:var(--muted)}
+  main .mx4 table.mx4-t td.tg{text-align:left;padding-left:12px;font-size:12.5px;font-weight:600;border-bottom:0!important}
+  @media (max-width:640px){main .mx4 table.mx4-t :is(td,th).c{width:52px;min-width:52px;max-width:52px}main .mx4 table.mx4-t td.v{font-size:14px}}
+  </style>
+      <div class="p4q-two p4q-one mx4" id="p4mx-seg"><div class="p4q-ch"><h3 data-mx="age">Share of Paying Subscribers and 3M ARPPU, by Age Band</h3><h3 data-mx="ch" hidden>Share of Paying Subscribers and 3M ARPPU, by Channel</h3><h3 data-mx="ci" hidden>Share of Paying Subscribers and 3M ARPPU, by City</h3><ul class="p4q-i" data-mx="age"><li><b>Older subscribers have a higher 3M ARPPU:</b> 45-92 has the highest 3M ARPPU, <b class="chg-good">$702</b>, and 4-17 has the lowest of the known age bands, <b class="chg-bad">$540</b></li><li><b>The largest known age band is shrinking:</b> 25-34 has a 3M ARPPU of <b>$675</b>, <b>32%</b> above the average of <b>$510</b>, but its share of paying subscribers fell from <b>24%</b> in Q1 2016 to <b class="chg-bad">20%</b> in Q1 2017</li><li><b>Subscribers with no age have a below-average 3M ARPPU and a growing share:</b> Unknown has a 3M ARPPU of <b class="chg-bad">$443</b>, <b>13%</b> below the average, and its share grew from <b>48%</b> in Q1 2016 to <b class="chg-bad">55%</b> in Q1 2017</li></ul><ul class="p4q-i" data-mx="ch" hidden><li><b>The channel with the highest 3M ARPPU is shrinking:</b> Channel 9 has the highest 3M ARPPU, <b class="chg-good">$709</b>, but its share of paying subscribers fell from <b>35%</b> in Q1 2016 to <b class="chg-bad">29%</b> in Q1 2017</li><li><b>The largest channel has a below-average 3M ARPPU:</b> Channel 7 grew from <b>37%</b> of paying subscribers in Q1 2016 to <b class="chg-bad">41%</b> in Q1 2017, and its 3M ARPPU, <b class="chg-bad">$408</b>, is <b>20%</b> below the average of <b>$510</b></li><li><b>The smallest channel has an above-average 3M ARPPU and is growing:</b> Channel 4 has a 3M ARPPU of <b class="chg-good">$597</b>, <b>17%</b> above the average, and its share of paying subscribers grew from <b>3%</b> in Q1 2016 to <b class="chg-good">7%</b> in Q1 2017</li></ul><ul class="p4q-i" data-mx="ci" hidden><li><b>The largest city has a below-average 3M ARPPU and is growing:</b> City 1 grew from <b>34%</b> of paying subscribers in Q1 2016 to <b class="chg-bad">41%</b> in Q1 2017, and its 3M ARPPU, <b class="chg-bad">$436</b>, is <b>15%</b> below the average of <b>$510</b></li><li><b>The city with the highest 3M ARPPU is shrinking:</b> City 13 has the highest 3M ARPPU, <b class="chg-good">$719</b>, but its share of paying subscribers fell from <b>14%</b> in Q1 2016 to <b class="chg-bad">12%</b> in Q1 2017</li><li><b>Subscribers with no city have the lowest 3M ARPPU:</b> Unknown has a 3M ARPPU of <b class="chg-bad">$364</b>, <b>29%</b> below the average, and holds about <b>10%</b> of paying subscribers</li></ul><div class="mx4-sp" role="group" aria-label="Split by">Split by <button type="button" data-k="age" aria-pressed="true">Age</button><button type="button" data-k="ch" aria-pressed="false">Channel</button><button type="button" data-k="ci" aria-pressed="false">City</button></div><div class="p4q-lg"><div class="vz-lg mx4-lg"><span><i class="mx4-sw"></i>Share: lowest → highest in each column · ARPPU: 20% below → 20% above the average</span><span><i class="mx4-ob" style="border-color:var(--mx4-fneg)"></i>Largest segment with 3M ARPPU at least 10% below average</span><span><i class="mx4-ob" style="border-color:var(--mx4-fpos)"></i>Smallest segment with 3M ARPPU at least 10% above average</span><span>* Late charge, Billing gap · ** Free-trial wave</span></div></div><div class="mx4-tw" data-mx="age"><table class="mx4-t" id="p4mx-ta"></table></div><div class="mx4-tw" data-mx="ch" hidden><table class="mx4-t" id="p4mx-tc"></table></div><div class="mx4-tw" data-mx="ci" hidden><table class="mx4-t" id="p4mx-tci"></table></div><div class="p4q-n" data-mx="age"><details class="coh-how fn"><summary><span class="fn-p">+</span> How 3M ARPPU is counted</summary><div class="fn-in">3M ARPPU = payments in the start month and the next 3 months ÷ paying subscribers who started in 2016 · Unknown = no age in the users data</div></details></div><div class="p4q-n" data-mx="ch" hidden><details class="coh-how fn"><summary><span class="fn-p">+</span> How 3M ARPPU is counted</summary><div class="fn-in">3M ARPPU = payments in the start month and the next 3 months ÷ paying subscribers who started in 2016 · Other = no channel, Channel 10 and 13</div></details></div><div class="p4q-n" data-mx="ci" hidden><details class="coh-how fn"><summary><span class="fn-p">+</span> How 3M ARPPU is counted</summary><div class="fn-in">3M ARPPU = payments in the start month and the next 3 months ÷ paying subscribers who started in 2016 · Other = the other 15 cities · Unknown = no city in the users data</div></details></div></div></div>
     </div>
 
     <div class="p4q" id="p4q3">
@@ -3236,6 +3267,65 @@ order by 1;</pre>
           <div class="p4q-n"><details class="coh-how fn"><summary><span class="fn-p">+</span> Counted on the last day of each month</summary><div class="fn-in">Paying subscribers with a paid plan of more than 300 days valid on the last day of the month ÷ all paying subscribers on that day (291,407 on 31/03/17) · Source: <span class="mono">fct_subscription</span></div></details></div>
         </div>
       </div>
+      <div class="p4q-two p4q-one mx4" id="p4mx-plan"><div class="p4q-ch"><h3>Share of Paying Subscribers and 3M ARPPU, by Plan Type</h3><ul class="p4q-i"><li><b>Annual has by far the highest 3M ARPPU:</b> Annual has a 3M ARPPU of <b class="chg-good">$1,749</b>, because an Annual subscriber pays for 12 months upfront, and Annual holds only <b>10%</b> of paying subscribers in Q1 2016 and <b>9%</b> in Q1 2017</li><li><b>The largest plan type has the lowest 3M ARPPU:</b> Monthly Auto-renew has a 3M ARPPU of <b class="chg-bad">$421</b>, <b>18%</b> below the average of <b>$512</b>, and its share of paying subscribers grew from <b>71%</b> in Q1 2016 to <b class="chg-bad">75%</b> in Q1 2017</li><li><b>Monthly Manual also has a below-average 3M ARPPU:</b> Monthly Manual has a 3M ARPPU of <b class="chg-bad">$455</b>, <b>11%</b> below the average, and its share of paying subscribers fell from <b>12%</b> in Q1 2016 to <b>10%</b> in Q1 2017</li></ul><div class="p4q-lg"><div class="vz-lg mx4-lg"><span><i class="mx4-sw"></i>Share: lowest → highest in each column · ARPPU: 20% below → 20% above the average</span><span><i class="mx4-ob" style="border-color:var(--mx4-fneg)"></i>Largest segment with 3M ARPPU at least 10% below average</span><span><i class="mx4-ob" style="border-color:var(--mx4-fpos)"></i>Smallest segment with 3M ARPPU at least 10% above average</span><span>* Late charge, Billing gap · ** Free-trial wave</span></div></div><div class="mx4-tw"><table class="mx4-t" id="p4mx-tp"></table></div><div class="p4q-n"><details class="coh-how fn"><summary><span class="fn-p">+</span> How 3M ARPPU is counted</summary><div class="fn-in">3M ARPPU = payments in the start month and the next 3 months ÷ paying subscribers who started in 2016, by their first paid plan</div></details></div></div></div>
+    <script>
+    /* Share of paying subscribers vs 3M ARPPU tables (Part 4); everything local to this function */
+    (function(){
+      const Q=['Q1 2016','Q2 2016','Q3 2016','Q4 2016','Q1 2017'],MK={'Q1 2016':'*','Q4 2016':'**'};
+      const PLAN={rows:['Monthly Auto-renew','Monthly Manual','Quarterly','Half-year','Annual'],
+       n:{'Monthly Auto-renew':[543113,509291,617124,648426,678557],'Monthly Manual':[94335,88521,89765,88712,86923],'Quarterly':[5159,6716,7390,13419,17471],'Half-year':[43000,44202,43531,42135,42823],'Annual':[75053,77844,77920,79152,79862]},
+       a:{'Monthly Auto-renew':421,'Monthly Manual':455,'Quarterly':574,'Half-year':811,'Annual':1749},all:512,lab:'3M ARPPU ($)',per:'2016 starts',frame:1};
+      const CHN={rows:['Channel 7','Channel 9','Channel 3','Channel 4','Other'],
+       n:{'Channel 7':[283254,298565,337979,356253,374366],'Channel 9':[265152,226221,261414,260776,259067],'Channel 3':[116466,101310,114751,117307,120293],'Channel 4':[22324,30894,41336,51000,60439],'Other':[73464,69584,80250,86508,91471]},
+       a:{'Channel 7':408,'Channel 9':709,'Channel 3':610,'Channel 4':597,'Other':366},all:510,lab:'3M ARPPU ($)',per:'2016 starts',frame:1};
+      const AGE={rows:['4-17','18-24','25-34','35-44','45-92','Unknown'],
+       n:{'4-17':[6794,7519,8381,9468,10799],'18-24':[106514,99286,110064,113661,117271],'25-34':[183138,154295,183866,184151,184415],'35-44':[71077,62180,70863,71065,69915],'45-92':[29534,27175,29210,29169,29069],'Unknown':[363603,376119,433346,464330,494167]},
+       a:{'4-17':540,'18-24':610,'25-34':675,'35-44':693,'45-92':702,'Unknown':443},all:510,lab:'3M ARPPU ($)',per:'2016 starts',frame:1};
+      const CITY={rows:['City 1','City 13','City 5','City 4','City 15','City 22','Other','Unknown'],
+       n:{'City 1':[256852,276631,318175,343446,370134],'City 13':[102989,90591,103705,104992,105574],'City 5':[74745,68193,74930,76115,76850],'City 4':[48339,44303,49234,49997,50422],'City 15':[44199,36033,44517,45080,45339],'City 22':[41337,35711,42497,43530,43717],'Other':[118740,105533,122599,123568,124661],'Unknown':[73459,69579,80073,85116,88939]},
+       a:{'City 1':436,'City 13':719,'City 5':684,'City 4':674,'City 15':670,'City 22':646,'Other':644,'Unknown':364},all:510,lab:'3M ARPPU ($)',per:'2016 starts',frame:1};
+      // continuous scale, the site cohort-matrix colours: red (low) -> yellow -> green (high)
+      const bg=t=>{t=Math.max(0,Math.min(1,t));return'background:'+(t<=.5?`color-mix(in srgb,var(--coh-mid) ${Math.round(200*t)}%,var(--coh-lo))`:`color-mix(in srgb,var(--coh-hi) ${Math.round(200*(t-.5))}%,var(--coh-mid))`)};
+      // share: position between the column's lowest and highest value on a log scale
+      function shareShade(vals){const L=vals.map(v=>Math.log(Math.max(v,0.5))),lo=Math.min(...L),hi=Math.max(...L);return L.map(x=>bg(hi>lo?(x-lo)/(hi-lo):.5))}
+      // ARPPU: distance from the average, 20% below = full red, 20% above = full green
+      const arpShade=(v,avg)=>v==null?'':bg(.5+(v/avg-1)/.4);
+      function build(id,D,first){
+        const el=document.getElementById(id);if(!el)return;
+        const tot=Q.map((q,j)=>D.rows.reduce((s,r)=>s+D.n[r][j],0));
+        const sh=Object.fromEntries(D.rows.map(r=>[r,D.n[r].map((x,j)=>Math.round(100*x/tot[j]))]));
+        const sc=Q.map((q,j)=>shareShade(D.rows.map(r=>sh[r][j]))), ac=D.rows.map(r=>arpShade(D.a[r],D.all));
+        let h='<thead><tr><th></th><th class="grp" colspan="5">Share of paying subscribers (%)</th><th class="sp"></th><th class="grp" rowspan="2">'+D.lab+'<br><span style="font-weight:400;color:var(--muted)">'+D.per+'</span></th><th rowspan="2"></th></tr>';
+        h+='<tr><th>'+first+'</th>'+Q.map(q=>'<th class="c">'+q.replace(' 20','-')+(MK[q]||'')+'</th>').join('')+'<th class="sp"></th></tr></thead><tbody>';
+        const fm=v=>v.toLocaleString('en-US');
+        const even=100/D.rows.length, W='3px';
+        const bx=(box,k,n)=>box?'box-shadow:inset 0 '+W+' 0 '+box+',inset 0 -'+W+' 0 '+box+(k===0?',inset '+W+' 0 0 '+box:'')+(k===n-1?',inset -'+W+' 0 0 '+box:'')+';':'';
+        // frames: red = largest segment with 3M ARPPU >=10% below average; green = smallest with >=10% above
+        const big=r=>D.n[r].reduce((a,b)=>a+b,0);
+        const lo=D.frame?D.rows.filter(r=>D.a[r]<=D.all*0.9).sort((x,y)=>big(y)-big(x))[0]:null;
+        const hi=D.frame?D.rows.filter(r=>D.a[r]>=D.all*1.1).sort((x,y)=>big(x)-big(y))[0]:null;
+        D.rows.forEach((r,i)=>{
+          const has=D.a[r]!=null, bad=r===lo, good=r===hi;
+          const box=bad?'var(--mx4-fneg)':good?'var(--mx4-fpos)':null;
+          h+='<tr><td style="'+bx(box,0,6)+'">'+r+'</td>'+Q.map((q,j)=>'<td class="c v" style="'+bx(box,j+1,6)+sc[j][i]+'">'+sh[r][j]+'%</td>').join('');
+          h+='<td class="sp"></td>'+(has?'<td class="v" style="padding:6px 10px;'+bx(box,0,1)+ac[i]+'">$'+fm(D.a[r])+'</td>':'<td class="v na" style="padding:6px 14px">–</td>');
+          h+='<td class="tg">'+(bad?'<span class="chg-bad">Large share, low ARPPU</span>':good?'<span class="chg-good">Small share, high ARPPU</span>':'')+'</td></tr>'});
+        h+='<tr class="avg"><td>Average</td>'+Q.map(()=>'<td class="c v">'+Math.round(even)+'%</td>').join('')+'<td class="sp"></td><td class="v" style="padding:6px 14px">$'+fm(D.all)+'</td><td class="tg"></td></tr>';
+        el.innerHTML=h+'</tbody>';
+      }
+      build('p4mx-tp',PLAN,'Plan type');
+      build('p4mx-ta',AGE,'Age band');
+      build('p4mx-tc',CHN,'Channel');
+      build('p4mx-tci',CITY,'City');
+      const seg=document.getElementById('p4mx-seg');
+      if(seg)seg.querySelectorAll('.mx4-sp button').forEach(b=>b.addEventListener('click',()=>{
+        const k=b.dataset.k;
+        seg.querySelectorAll('.mx4-sp button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+        seg.querySelectorAll('[data-mx]').forEach(x=>{x.hidden=x.dataset.mx!==k});
+      }));
+    })();
+    </script>
+
     </div>
     <div class="p4n-note" style="margin-top:22px"><details class="coh-how fn" id="p4-15k"><summary><span class="fn-p">+</span> How the ~10,000 subscribers a year was reached</summary><div class="fn-in" style="margin-top:10px"><div class="p4q" id="p4q15k" style="padding:18px 20px;gap:0">
       <div style="font-size:14px;line-height:1.5;color:var(--fg);margin-bottom:18px"><b>How each number is built:</b> a renewal is each time a subscription ends and the user must pay again. Each move = renewals a year in the group it targets × how much less that group churns</div>
