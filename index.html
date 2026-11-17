@@ -36,6 +36,7 @@ nav.tabs{display:flex;gap:4px;flex-wrap:wrap;background:rgba(255,255,255,.7);bor
 .tab{font:inherit;font-weight:600;font-size:var(--fs-tab);padding:7px 14px;border:0;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer;transition:background .15s,color .15s}
 .tab:hover{color:var(--navy);background:var(--accent-soft)}
 .tab.on{background:#1e3a8a;color:#fff;box-shadow:none}
+.tab.tab-deck{background:#ede9fe;color:#6d28d9}.tab.tab-deck:hover{background:#ddd6fe;color:#5b21b6}.tab.tab-deck.on{background:#7c3aed;color:#fff}
 .cx-head .cx-logo{display:none}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .top{background:linear-gradient(100deg,#152238 0%,#13253f 60%,#0f2c40 100%)}:root:not([data-theme="light"]) nav.tabs{background:rgba(14,22,36,.5)}:root:not([data-theme="light"]) .brand .logo img{clip-path:inset(0 63% 0 0)}:root:not([data-theme="light"]) .brand .logo::after{content:"";position:absolute;inset:0;background:url(tune_logo.png) 0 0/100% 100% no-repeat;filter:invert(1);clip-path:inset(0 0 0 37%)}}
 :root[data-theme="dark"] .top{background:linear-gradient(100deg,#152238 0%,#13253f 60%,#0f2c40 100%)}:root[data-theme="dark"] nav.tabs{background:rgba(14,22,36,.5)}:root[data-theme="dark"] .brand .logo img{clip-path:inset(0 63% 0 0)}:root[data-theme="dark"] .brand .logo::after{content:"";position:absolute;inset:0;background:url(tune_logo.png) 0 0/100% 100% no-repeat;filter:invert(1);clip-path:inset(0 0 0 37%)}
@@ -364,6 +365,7 @@ main{--v-rev:#e9d5ff;--v-rev-ink:#9333ea}
     <button class="tab" role="tab" data-group="p3">Part 3 · Deep dive</button>
     <button class="tab" role="tab" data-group="p4">Part 4 · Summary</button>
     <button class="tab" role="tab" data-group="p5">Part 5 · Test &amp; AI</button>
+    <button class="tab tab-deck" role="tab" data-group="deck">Leadership Deck</button>
   </nav>
 </div></header>
 <div class="subnav"><nav class="subnav-in pad" id="subnav" aria-label="Sub-sections"></nav></div>
@@ -3654,7 +3656,7 @@ order by 1;</pre>
     })();
   </script>
 
-  <!-- LEADERSHIP DECK: not in the tab bar, opened only by #deck -->
+  <!-- LEADERSHIP DECK: purple tab at the end of the tab bar (#deck) -->
   <section class="view" id="view-deck" hidden>
     <style>
       #view-deck .deck-list{max-width:1000px;margin:0 auto;display:grid;gap:18px;padding:4px 0 24px}
