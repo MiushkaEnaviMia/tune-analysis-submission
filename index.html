@@ -3298,7 +3298,7 @@ order by 1;</pre>
         let h='<thead><tr><th></th><th class="grp" colspan="5">Share of paying subscribers (%)</th><th class="sp"></th><th class="grp" rowspan="2">'+D.lab+'<br><span style="font-weight:400;color:var(--muted)">'+D.per+'</span></th><th rowspan="2"></th></tr>';
         h+='<tr><th>'+first+'</th>'+Q.map(q=>'<th class="c">'+q.replace(' 20','-')+(MK[q]||'')+'</th>').join('')+'<th class="sp"></th></tr></thead><tbody>';
         const fm=v=>v.toLocaleString('en-US');
-        const even=100/D.rows.length, W='3px';
+        const W='3px';
         const bx=(box,k,n)=>box?'box-shadow:inset 0 '+W+' 0 '+box+',inset 0 -'+W+' 0 '+box+(k===0?',inset '+W+' 0 0 '+box:'')+(k===n-1?',inset -'+W+' 0 0 '+box:'')+';':'';
         // frames: red = largest segment with 3M ARPPU >=10% below average; green = smallest with >=10% above
         const big=r=>D.n[r].reduce((a,b)=>a+b,0);
@@ -3310,7 +3310,7 @@ order by 1;</pre>
           h+='<tr><td style="'+bx(box,0,6)+'">'+r+'</td>'+Q.map((q,j)=>'<td class="c v" style="'+bx(box,j+1,6)+sc[j][i]+'">'+sh[r][j]+'%</td>').join('');
           h+='<td class="sp"></td>'+(has?'<td class="v" style="padding:6px 10px;'+bx(box,0,1)+ac[i]+'">$'+fm(D.a[r])+'</td>':'<td class="v na" style="padding:6px 14px">–</td>');
           h+='<td class="tg">'+(bad?'<span class="chg-bad">Large share, low ARPPU</span>':good?'<span class="chg-good">Small share, high ARPPU</span>':'')+'</td></tr>'});
-        h+='<tr class="avg"><td>Average</td>'+Q.map(()=>'<td class="c v">'+Math.round(even)+'%</td>').join('')+'<td class="sp"></td><td class="v" style="padding:6px 14px">$'+fm(D.all)+'</td><td class="tg"></td></tr>';
+        h+='<tr class="avg"><td>Average</td>'+Q.map(()=>'<td class="c v"></td>').join('')+'<td class="sp"></td><td class="v" style="padding:6px 14px">$'+fm(D.all)+'</td><td class="tg"></td></tr>';
         el.innerHTML=h+'</tbody>';
       }
       build('p4mx-tp',PLAN,'Plan type');
