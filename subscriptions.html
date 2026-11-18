@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tune Subscription Tree</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* layout: one wide tree, level labels on the left, scrolls sideways on phones */
+:root{--bg:#f5f8fd;--card:#ffffff;--fg:#14233a;--muted:#5b6b82;--line:#a9bad3;--head:#10275c;--acc:#2563eb;
+--root:#1f3864;--root-t:#ffffff;--paid:#2b4a86;
+--mo:#2c5cc5;--mo-t:#e7eefb;--qu:#5e7491;--qu-t:#eef2f7;--hy:#6f63c9;--hy-t:#efedfb;--an:#b9548a;--an-t:#fbeef5;
+--ar:#3b82f6;--ar-t:#e6f0fe;--ma:#5f86c4;--ma-t:#edf2fa;--fr:#0f8f84;--fr-t:#e4f5f2;--tint:#eaf1fb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1726;--card:#16213a;--fg:#e4eaf4;--muted:#9aa9c0;--line:#4a5d7d;--head:#dbe6ff;--acc:#7fb0ff;
+--root:#3b5ea8;--paid:#35589e;--mo:#7ea6f2;--mo-t:#1c2d52;--qu:#a3b3c9;--qu-t:#202b3d;--hy:#ab9ff0;--hy-t:#262347;--an:#ec93c0;--an-t:#3a2033;
+--ar:#82b2fb;--ar-t:#1b2f52;--ma:#9db8e3;--ma-t:#1f2c45;--fr:#5fd0c3;--fr-t:#123632;--tint:#1a2944;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1726;--card:#16213a;--fg:#e4eaf4;--muted:#9aa9c0;--line:#4a5d7d;--head:#dbe6ff;--acc:#7fb0ff;
+--root:#3b5ea8;--paid:#35589e;--mo:#7ea6f2;--mo-t:#1c2d52;--qu:#a3b3c9;--qu-t:#202b3d;--hy:#ab9ff0;--hy-t:#262347;--an:#ec93c0;--an-t:#3a2033;
+--ar:#82b2fb;--ar-t:#1b2f52;--ma:#9db8e3;--ma-t:#1f2c45;--fr:#5fd0c3;--fr-t:#123632;--tint:#1a2944;color-scheme:dark}
+html,body{margin:0}body{background:var(--bg);color:var(--fg);font-family:Inter,-apple-system,"Helvetica Neue",Arial,sans-serif;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px}
+.wrap{max-width:1240px;margin:0 auto}
+h1{font-size:26px;font-weight:800;color:var(--head);margin:0 0 4px;text-wrap:balance}
+.sub{color:var(--muted);font-size:14px;margin:0 0 18px}
+.sc{overflow-x:auto;background:var(--card);border-radius:14px;padding:22px 20px 18px;box-shadow:0 1px 6px rgba(16,39,92,.07)}
+.vt{position:relative;width:1200px;height:500px}
+.rl{position:absolute;left:0;width:205px;font-size:12.5px;line-height:1.32;color:var(--fg)}
+.rl b{display:block;font-size:14.5px;color:var(--head);margin-bottom:2px}.rl small{font-size:11.5px;font-weight:600;color:var(--acc)}
+.rl span b{display:inline;font-size:12.5px}
+.tz{position:absolute;left:231px;top:0;width:969px;height:100%}
+.tz svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.tz path{fill:none;stroke:var(--line);stroke-width:1.5}
+.n,.lf{position:absolute;box-sizing:border-box}
+.n{border-radius:10px;padding:5px 10px;display:flex;justify-content:space-between;align-items:center;gap:6px;line-height:1.15;background:var(--t);border:1.5px solid var(--c);color:var(--fg)}
+.n b{font-size:14.5px;display:block;color:var(--c);white-space:nowrap}.n span{font-size:10.5px;color:var(--muted);display:block}.n em{font-style:normal;font-weight:800;font-size:16px;color:var(--c)}
+.n.root,.n.paid{background:var(--c);border-color:var(--c)}.n.root b,.n.paid b,.n.root em,.n.paid em{color:#fff}.n.root span,.n.paid span{color:rgba(255,255,255,.85)}
+.lf{border:1.5px solid var(--c);background:var(--card);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.12;font-size:12.5px}
+.lf b{color:var(--c);font-size:13px}.lf em{font-style:normal;font-weight:700;color:var(--fg)}.lf span{font-size:10.5px;color:var(--muted)}
+.lf.o{border-style:dashed;border-color:var(--line)}.lf.o b{color:var(--muted)}
+.root{--c:var(--root)}.paid{--c:var(--paid)}.free{--c:var(--fr);--t:var(--fr-t)}
+.mo{--c:var(--mo);--t:var(--mo-t)}.qu{--c:var(--qu);--t:var(--qu-t)}.hy{--c:var(--hy);--t:var(--hy-t)}.an{--c:var(--an);--t:var(--an-t)}
+.ar{--c:var(--ar);--t:var(--ar-t)}.ma{--c:var(--ma);--t:var(--ma-t)}.dz{--c:var(--fr);--t:var(--fr-t)}
+.ut{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;font-size:13px;margin-top:16px}
+.ut>b{color:var(--head);font-size:14px}
+.ut div{border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:7px;padding:5px 10px;background:var(--card)}
+.ut div b{color:var(--head);margin-right:5px}
+.fn{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.45}
+</style>
+</head><body>
+<div class="wrap">
+<h1>How Tune's subscriptions split, Q1 2017</h1>
+<p class="sub">Each box breaks only into the groups that exist under it · every % is a share of the box it splits from</p>
+<div class="sc"><div class="vt"><div class="rl" style="top:-2px"><b>Users with access</b><span>each month, paying or on a free trial</span></div><div class="rl" style="top:78px"><b>Free trial or paid</b><span>Few trial users pay later: <b>12.9%</b> and <b>4.8%</b> of the two waves</span></div><div class="rl" style="top:166px"><b>Plan length</b><span>Longer plans pay upfront: 3M ARPPU <b>$1,749</b> Annual vs <b>$421</b> Monthly Auto-renew</span></div><div class="rl" style="top:256px"><b>Payment type <small>Monthly only</small></b><span>Strongest churn driver: <b>19.9%</b> per renewal on Manual vs <b>3.0%</b> on Auto-renew</span></div><div class="rl" style="top:352px"><b>Price point <small>list price</small></b><span>$99 caught up with $149 by month 12 (<b>$1,160</b> vs $1,159): <b>92%</b> still paid a year later vs 54%</span></div><div class="rl" style="top:444px"><b>Discount <small>$149 Auto-renew only</small></b><span>9.7% of paid purchases in Jan 2015, ended in Nov 2015; $99 took its place</span></div><div class="tz"><svg><path d="M362.6 50V65.0H171.8V80M362.6 50V65.0H553.4V80M553.4 134V151.0H231.8V168M553.4 134V151.0H501.0V168M553.4 134V151.0H671.0V168M553.4 134V151.0H875.0V168M231.8 222V240.0H121.5V258M231.8 222V240.0H342.0V258M121.5 314V334.0H26.0V354M121.5 314V334.0H121.5V354M121.5 314V334.0H217.0V354M121.5 404V425.0H88.0V446M121.5 404V425.0H155.0V446M342.0 314V334.0H285.0V354M342.0 314V334.0H342.0V354M342.0 314V334.0H399.0V354M501.0 222V240.0H467.0V354M501.0 222V240.0H535.0V354M671.0 222V240.0H603.0V354M671.0 222V240.0H671.0V354M671.0 222V240.0H739.0V354M875.0 222V240.0H807.0V354M875.0 222V240.0H875.0V354M875.0 222V240.0H943.0V354"/></svg><div class="n root" style="left:262.6px;top:0px;width:200px;height:50px"><div><b>All users with access</b><span>paying or on a free trial</span></div><em></em></div><div class="n free" style="left:96.8px;top:80px;width:150px;height:54px"><div><b>Free trial</b><span>$0, mostly 30 days</span></div><em>0.7%</em></div><div class="n paid" style="left:483.4px;top:80px;width:140px;height:54px"><div><b>Paid</b><span>paying subscribers</span></div><em>99.3%</em></div><div class="n mo" style="left:156.8px;top:168px;width:150px;height:54px"><div><b>Monthly</b><span>30-day plan</span></div><em>85%</em></div><div class="n ar" style="left:46.5px;top:258px;width:150px;height:56px"><div><b>Auto-renew</b><span>card charged · churn: 3 days</span></div><em>89%</em></div><div class="lf mo" style="left:0.0px;top:354px;width:52px;height:50px"><b>$99</b><em>44%</em></div><div class="lf mo" style="left:95.5px;top:354px;width:52px;height:50px"><b>$149</b><em>43%</em></div><div class="lf dz" style="left:57.0px;top:446px;width:62px;height:48px"><b>Full price</b><em>100%</em></div><div class="lf dz o" style="left:124.0px;top:446px;width:62px;height:48px"><b>20% off</b><em>0%</em><span>$119</span></div><div class="lf mo o" style="left:191.0px;top:354px;width:52px;height:50px"><b>Other</b><em>14%</em></div><div class="n ma" style="left:267.0px;top:258px;width:150px;height:56px"><div><b>Manual</b><span>pays each time · churn: 30 days</span></div><em>11%</em></div><div class="lf mo" style="left:259.0px;top:354px;width:52px;height:50px"><b>$149</b><em>57%</em></div><div class="lf mo" style="left:316.0px;top:354px;width:52px;height:50px"><b>$180</b><em>39%</em></div><div class="lf mo o" style="left:373.0px;top:354px;width:52px;height:50px"><b>Other</b><em>4%</em></div><div class="n qu" style="left:426.0px;top:168px;width:150px;height:54px"><div><b>Quarterly</b><span>46–135 days · Manual</span></div><em>2%</em></div><div class="lf qu" style="left:441.0px;top:354px;width:52px;height:50px"><b>$477</b><em>35%</em></div><div class="lf qu o" style="left:509.0px;top:354px;width:52px;height:50px"><b>Other</b><em>65%</em></div><div class="n hy" style="left:596.0px;top:168px;width:150px;height:54px"><div><b>Half-year</b><span>136–300 days · Manual</span></div><em>5%</em></div><div class="lf hy" style="left:577.0px;top:354px;width:52px;height:50px"><b>$894</b><em>53%</em></div><div class="lf hy" style="left:645.0px;top:354px;width:52px;height:50px"><b>$536</b><em>32%</em></div><div class="lf hy o" style="left:713.0px;top:354px;width:52px;height:50px"><b>Other</b><em>15%</em></div><div class="n an" style="left:800.0px;top:168px;width:150px;height:54px"><div><b>Annual</b><span>over 300 days · Manual</span></div><em>9%</em></div><div class="lf an" style="left:781.0px;top:354px;width:52px;height:50px"><b>$1,788</b><em>80%</em></div><div class="lf an" style="left:849.0px;top:354px;width:52px;height:50px"><b>$1,599</b><em>14%</em></div><div class="lf an o" style="left:917.0px;top:354px;width:52px;height:50px"><b>Other</b><em>6%</em></div></div></div></div>
+<div class="ut"><b>Each month every user is one user type:</b><div><b>New</b>first purchase this month</div><div><b>Reactivated</b>back after more than 30 days absent</div><div><b>Renewing</b>renewed within 30 days, or still in a plan</div></div>
+<p class="fn">Q1 2017 = paying subscribers in Jan, Feb and Mar 2017 added up, each by the plan valid that month · Quarterly, Half-year and Annual are always Manual · churn: not charged again within 3 days (Auto-renew) or no purchase within 30 days (Manual)</p>
+</div>
+</body></html>
