@@ -1174,6 +1174,7 @@ main{--v-rev:#e9d5ff;--v-rev-ink:#9333ea}
   .view:not(#_) table.v3-t.coh-t#p24-coh{width:100%;font-size:12px}
   .view:not(#_) table.v3-t.coh-t#p24-coh :is(th,td){height:24px;padding:2px 4px;white-space:nowrap}
   #p24-coh td.ol{outline-color:var(--v-navy)}
+  #p24-coh td.fcl{border-left:2px dashed var(--v-navy)!important}#p24-coh td.fcr{border-right:2px dashed var(--v-navy)!important}#p24-coh td.fct{border-top:2px dashed var(--v-navy)!important}#p24-coh td.fcb{border-bottom:2px dashed var(--v-navy)!important}
   #p24-coh td.ol.ob{outline-color:var(--v-red)}
   #p24-coh td.bxg{--bc:var(--v-good,#059669)}#p24-coh td.bxr{--bc:var(--v-bad,#dc2626)}
   #p24-coh td.bx-t,#p24-coh td.bx-m,#p24-coh td.bx-b,#p24-coh td.bx-1{font-weight:700}
@@ -1268,9 +1269,11 @@ main{--v-rev:#e9d5ff;--v-rev-ink:#9333ea}
   const fill = (id, k, fmt) => {
     const el = document.getElementById(id); if (!el) return;
     const SS = rng(id), R = COH.slice(SS.a, SS.b + 1), f = Math.min(k - 3, 1), MS = k >= 4 && !P24ALL ? [0, 2, 5, 11] : M;
-    const Q = M.map((j) => { const s = R.map((r) => r[k][j]).filter((v) => v != null).sort((x, y) => x - y); return s.length >= 4 ? [q(s, 0.25), q(s, 0.75)] : null; });
+    const FCOL = id === "p24-coh";  // user 11-18: 2.4 colours forecast cells too (lighter), on one scale per column with the real values
+    const tq = (v, a) => (a[1] > a[0] ? Math.min(1, Math.max(0, (v - a[0]) / (a[1] - a[0]))) : 0.5), lt = (t) => `color-mix(in srgb,${bg(t)} 55%,transparent)`;
+    const Q = M.map((j) => { const s = R.map((r) => r[k][j] ?? (FCOL ? fcv(r, k, j) : null)).filter((v) => v != null).sort((x, y) => x - y); return s.length >= 4 ? [q(s, 0.25), q(s, 0.75)] : null; });
     const cell = (v, j, r) => { if (v == null) { const p = fcv(r, k, j);
-        return p == null ? "<td></td>" : `<td class="fc${isX(id, k, r, j) ? " ol" : ""}${gx(id, k, r, j)}">~${fmt(p)}</td>`; }
+        return p == null ? "<td></td>" : `<td class="fc${isX(id, k, r, j) ? " ol" : ""}${gx(id, k, r, j)}"${FCOL && Q[j] ? ` style="background:${lt(tq(p, Q[j]))}"` : ""}>~${fmt(p)}</td>`; }
       if (!Q[j]) return `<td>${fmt(v)}</td>`; const [a, b] = Q[j], t = b > a ? Math.min(1, Math.max(0, (v - a) / (b - a))) : 0.5;
       const ol = isX(id, k, r, j) ? ' class="ol"' : k === 3 && OL[r[0]] === j ? ' class="ol" title="Jul 2016: payment method 39 back, retention rose"' : id === "p24-coh" && j === 11 && P24B[k === 4 ? "arpu" : "rev"].includes(r[0]) ? (k === 4 && r[0] === "2015-06" ? ' class="ol ob"' : ' class="ol"') : "";
       return `<td${ol || (gx(id, k, r, j) ? ` class="${gx(id, k, r, j).trim()}"` : "")} style="background:${bg(t)}">${fmt(v)}</td>`; };
@@ -1281,14 +1284,17 @@ main{--v-rev:#e9d5ff;--v-rev-ink:#9333ea}
       return `<tr class="p24-avg"><td class="m">avg</td><td></td><td></td>` + MS.map((j) => (j === 0 || j === 5 ? `<td class="bx-b bx${g}">avg ${av(j)}</td>` : "<td></td>")).join("") + (rv ? '<td class="rv rv1"></td><td class="rv"></td>' : "") + "</tr>"; };
     /* 2.4 only: the other view at M6 and M12 (ARPU view: revenue $M; revenue view: cumulative ARPU $), coloured within its own column */
     const rv = k >= 4, xk = k === 4 ? 5 : 4, xf = k === 4 ? (v) => "$" + v.toFixed(1) + "M" : (v) => "$" + n0(v), xn = k === 4 ? "Revenue" : "ARPU";
-    const RQ = [5, 11].map((x) => { const s = R.map((r) => r[xk][x]).filter((v) => v != null).sort((a, b) => a - b); return s.length >= 4 ? [q(s, 0.25), q(s, 0.75)] : null; });
+    const RQ = [5, 11].map((x) => { const s = R.map((r) => r[xk][x] ?? (FCOL ? fcv(r, xk, x) : null)).filter((v) => v != null).sort((a, b) => a - b); return s.length >= 4 ? [q(s, 0.25), q(s, 0.75)] : null; });
     const rc = (r, x) => { const v = r[xk][x ? 11 : 5], c = (x ? "rv" : "rv rv1") + (x && P24B[k === 4 ? "rev" : "arpu"].includes(r[0]) ? (k === 5 && r[0] === "2015-06" ? " ol ob" : " ol") : ""); if (v == null) { const p = fcv(r, xk, x ? 11 : 5);  // user 11-16: the other view's M6 / M12 forecast reaches the same start months as the main columns
-        return p == null ? `<td class="${c}"></td>` : `<td class="${c} fc">~${xf(p)}</td>`; }
+        return p == null ? `<td class="${c}"></td>` : `<td class="${c} fc"${FCOL && RQ[x] ? ` style="background:${lt(tq(p, RQ[x]))}"` : ""}>~${xf(p)}</td>`; }
       const t = RQ[x] && RQ[x][1] > RQ[x][0] ? Math.min(1, Math.max(0, (v - RQ[x][0]) / (RQ[x][1] - RQ[x][0]))) : 0.5;
       return `<td class="${c}" style="background:${bg(t)}">${xf(v)}</td>`; };
     el.innerHTML = "<thead><tr><th>Start" + (rv ? " " : "<br>") + "month</th><th>Users</th><th>Started" + (rv ? " " : "<br>") + "free</th>" + MS.map((j) => `<th>M${j + 1}</th>`).join("") + (rv ? `<th class="rv rv1">${xn} by M6</th><th class="rv">${xn} by M12</th>` : "") + "</tr></thead><tbody>" +
       R.map((r) => `<tr><td class="m">${rv ? (r[2] >= 50 ? '<span class="p24-st">*</span>' : "") + fm(r[0]) : ml(r[0])}</td><td${rv && P24B.users.includes(r[0]) ? ' class="bx-1 bxg"' : ""}>${n0(r[1])}</td><td${r[2] >= 50 ? ' class="fr"' : ""}>${r[2]}%</td>` + MS.map((j) => cell(r[k][j], j, r)).join("") + (rv ? rc(r, 0) + rc(r, 1) : "") + "</tr>" + avgRow(r)).join("") + "</tbody>" +
       (MS !== M ? "" : `<tfoot><tr class="fc-step"><td colspan="3">Forecast growth steps</td><td></td>` + STEP[f].map((g) => g == null ? "<td></td>" : `<td>${g > 0 ? "+" : "−"}${Math.abs(g).toFixed(1)}%</td>`).join("") + (rv ? '<td class="rv rv1"></td><td class="rv"></td>' : "") + "</tr></tfoot>");
+    if (FCOL) { const rows = [...el.tBodies[0].rows].filter((x) => !x.classList.contains("p24-avg")), F = (y, x) => !!(rows[y] && rows[y].cells[x] && rows[y].cells[x].classList.contains("fc")), rvx = (y, x) => rows[y].cells[x] && rows[y].cells[x].classList.contains("rv1");
+      rows.forEach((tr, y) => [...tr.cells].forEach((c, x) => { if (!F(y, x)) return;
+        if (!F(y, x - 1) || rvx(y, x)) c.classList.add("fcl"); if (!F(y, x + 1) || rvx(y, x + 1)) c.classList.add("fcr"); if (!F(y - 1, x)) c.classList.add("fct"); if (!F(y + 1, x)) c.classList.add("fcb"); })); }
     const mb = document.querySelector(".p24-all"); if (mb && k >= 4) mb.textContent = P24ALL ? "Show M1, M3, M6, M12 only" : "Show all 12 months";
   };
   let P24K = 4, P24ALL = false;
@@ -1303,7 +1309,7 @@ main{--v-rev:#e9d5ff;--v-rev-ink:#9333ea}
   document.querySelectorAll("[data-coh]").forEach((f) => {
     const is4 = !!f.closest("#view-p2-arpu"), St = is4 ? S4 : S, o = is4 ? opts4 : opts;
     f.innerHTML = `<span>Start month from <select data-k="a" aria-label="First start month shown">${o}</select> to <select data-k="b" aria-label="Last start month shown">${o}</select></span>` +
-      `<span class="lg"><span><i style="background:var(--coh-lo)"></i>Low</span><span><i style="background:var(--coh-mid)"></i>Middle</span><span><i style="background:var(--coh-hi)"></i>High</span><span>within each month column, for the start months shown</span><span class="fc">~ Forecast</span>${is4 ? '<span><b class="p24-st">*</b> Free trial: most users started free</span>' : ""}</span>`;
+      `<span class="lg"><span><i style="background:var(--coh-lo)"></i>Low</span><span><i style="background:var(--coh-mid)"></i>Middle</span><span><i style="background:var(--coh-hi)"></i>High</span><span>within each month column, for the start months shown</span><span class="fc">${is4 ? '<i style="background:color-mix(in srgb,var(--coh-hi) 55%,transparent);outline:1.5px dashed var(--v-navy);outline-offset:-1.5px"></i>~ Forecast: grey, lighter colour, dashed outline' : "~ Forecast"}</span>${is4 ? '<span><b class="p24-st">*</b> Free trial: most users started free</span>' : ""}</span>`;
     f.querySelectorAll("select").forEach((s) => (s.onchange = () => { St[s.dataset.k] = +s.value; if (St.a > St.b) St[s.dataset.k === "a" ? "b" : "a"] = +s.value; draw(); }));
   });
   const ab = document.querySelector(".p24-all"); if (ab) ab.onclick = () => { P24ALL = !P24ALL; ab.setAttribute("aria-pressed", P24ALL); draw(); };
