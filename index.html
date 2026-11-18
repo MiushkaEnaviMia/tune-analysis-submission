@@ -1793,7 +1793,7 @@ const P23_TYPE = [["2015-02",1.98,2249,15.1,1943,0.09,4],["2015-03",2.32,2673,17
     <div class="qa">
     <div class="cx-bottom qa-a">
       <ul class="p3-ans">
-        <li><b>Payment type is the strongest driver of churn:</b> Manual users churn <b class="chg-bad">19.9%</b> per renewal vs <b class="chg-good"><span data-r30="2.4%">3.0%</span></b> for Auto-renew users</li>
+        <li><b>Payment type is the strongest driver of churn:</b> on monthly plans, Manual users churn <b class="chg-bad">18.5%</b> per renewal vs <b class="chg-good"><span data-r30="2.4%">3.0%</span></b> for Auto-renew users</li>
         <li><b>Churn is highest at the first renewal:</b> even on Auto-renew, churn at the first renewal is <span data-r30="9.0% vs 2.2%">9.9% vs 2.7%</span> at later renewals</li>
         <li><b>Age, city and plan length only appear to drive churn:</b><br>Young users, some cities and long plans use Auto-renew far less, so their higher churn reflects how they pay. On Auto-renew, every age band churns <b class="chg-flat"><span data-r30="2.2–2.9%">2.8–3.8%</span></b>, and Multi and Annual plans are all Manual, while <span data-r30="88%">89%</span> of 30-day renewals are on Auto-renew</li>
         <li><b>Acquisition channel keeps a smaller real effect:</b> on Auto-renew, Channel 7 churns <span data-r30="1.9% vs 2.5–3.6%">2.3% vs 3.3–4.9%</span> for the other channels</li>
@@ -2122,15 +2122,15 @@ const P23_TYPE = [["2015-02",1.98,2249,15.1,1943,0.09,4],["2015-03",2.32,2673,17
   (() => {
   const el = document.getElementById("p3c1-ch"); if (!el) return;
   const V = {  // [main rule, 30 days for all]
-    all:  { a: [3.0, 2.4], h: 19.9, p30: [4.7, 4.3], multi: 27.0, ann: 30.7, nA: ["3.7M", "3.5M"], nH: "534K", n30: "4.1M", n2: "52K", n12: "23K", sh30: [89, 88], x: ["7×", "8×"] },
-    l6:   { a: [2.6, 2.0], h: 19.7, p30: [4.0, 3.6], multi: 23.2, ann: 28.6, nA: ["1.5M", "1.3M"], nH: "171K", n30: "1.6M", n2: "19K", n12: "12K", sh30: [91, 90], x: ["8×", "10×"] },
-    hand: { a: [3.0, 2.4], h: 19.9, p30: [18.5, 18.5], multi: 27.0, ann: 30.7, nA: ["3.7M", "3.5M"], nH: "534K", n30: "457K", n2: "52K", n12: "23K", sh30: 0, x: ["7×", "8×"] },
+    all:  { a: [3.0, 2.4], h: 18.5, p30: [4.7, 4.3], multi: 27.0, ann: 30.7, nA: ["3.7M", "3.5M"], nH: "457K", n30: "4.1M", n2: "52K", n12: "23K", sh30: [89, 88], x: ["6×", "8×"] },
+    l6:   { a: [2.6, 2.0], h: 18.5, p30: [4.0, 3.6], multi: 23.2, ann: 28.6, nA: ["1.5M", "1.3M"], nH: "140K", n30: "1.6M", n2: "19K", n12: "12K", sh30: [91, 90], x: ["7×", "9×"] },
+    hand: { a: [3.0, 2.4], h: 18.5, p30: [18.5, 18.5], multi: 27.0, ann: 30.7, nA: ["3.7M", "3.5M"], nH: "457K", n30: "457K", n2: "52K", n12: "23K", sh30: 0, x: ["6×", "8×"] },
   };
   let k = "all";
   const ri = () => ((window.CRULE || "3") === "30" ? 1 : 0);
   const cc = {
-    all: (d, r) => `<b>Manual users churn ${d.x[r]} more per renewal than Auto-renew users:</b> <b class="chg-bad">${d.h}%</b> vs <b class="chg-good">${d.a[r].toFixed(1)}%</b> per renewal; Multi and Annual plans show the highest churn (${d.multi.toFixed(1)}%, ${d.ann.toFixed(1)}%) only because none of their users are on Auto-renew`,
-    l6: (d, r) => `<b>The gap between payment types holds in Sep 2016 – Mar 2017:</b> Manual <b class="chg-bad">${d.h}%</b> vs Auto-renew <b class="chg-good">${d.a[r].toFixed(1)}%</b> (${d.x[r]}); Multi and Annual plans fall to ${d.multi}% and ${d.ann}%`,
+    all: (d, r) => `<b>On monthly plans, Manual users churn ${d.x[r]} more per renewal than Auto-renew users:</b> <b class="chg-bad">${d.h}%</b> vs <b class="chg-good">${d.a[r].toFixed(1)}%</b> per renewal; Multi and Annual plans show the highest churn (${d.multi.toFixed(1)}%, ${d.ann.toFixed(1)}%) only because none of their users are on Auto-renew`,
+    l6: (d, r) => `<b>The gap between payment types holds in Sep 2016 – Mar 2017:</b> on monthly plans, Manual <b class="chg-bad">${d.h}%</b> vs Auto-renew <b class="chg-good">${d.a[r].toFixed(1)}%</b> (${d.x[r]}); Multi and Annual plans fall to ${d.multi}% and ${d.ann}%`,
     hand: (d) => `<b>When only Manual users are compared, plan length has a much smaller effect on churn:</b> 30-day plans churn ${d.p30[0].toFixed(1)}% per renewal vs ${d.multi.toFixed(1)}% for Multi and ${d.ann.toFixed(1)}% for Annual plans, and an Annual plan comes up for renewal only once a year`,
   };
   const lg = document.getElementById("p3c1-lg");
@@ -2173,10 +2173,10 @@ const P23_TYPE = [["2015-02",1.98,2249,15.1,1943,0.09,4],["2015-03",2.32,2673,17
       });
     };
     if (nar) {
-      panel(left, L, W - L - R, "By payment type");
+      panel(left, L, W - L - R, "By payment type · monthly plans only");
       panel(right, L, W - L - R, k === "hand" ? "By plan length · Manual only" : "By plan length", o2);
     } else {
-      panel(left, xl, wl, "By payment type");
+      panel(left, xl, wl, "By payment type · monthly plans only");
       panel(right, xr, wr, k === "hand" ? "By plan length · Manual only" : "By plan length");
     }
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
